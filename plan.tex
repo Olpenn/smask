@@ -29,5 +29,33 @@
     \item Is there any trend depending on the weather?
 \end{itemize}
 
+\section{From Implementation of methods}
+
+Each group member should implement one family each, who did what shall be clear!
+\\
+DNNs are encouraged to be implemented, do this if there is time. 
+(DNN is not a thing a group member can claim as their family.)
+\\
+Implement a naive version, let's do: $\textit{Always low\_bike\_demand}$
+\subsection{What to do with each method}
+\begin{enumerate}
+    \item Implement the method (each person individually)
+    \item Tune hyper-parameters, discuss how this is done (each person individually)
+    \item Evaluate with for example cross-validation. Don't use $E_{k-fold}$ (what is that?) (need to do together)
+    \item (optional) Think about input features, are all relevant? (together)
+\end{enumerate}
+
+\noindent
+Before training, unify pre-processing FOR ALL METHODS and choose ONE OR MULTIPLE metrics to evaluate the model.
+(is it neccesary to have the same for all?, is it beneficial?) Examples:
+\begin{itemize}
+    \item accuracy
+    \item f1-score
+    \item recall
+    \item precision
+\end{itemize}
+
+\noindent
+Use same test-train split for ALL MODELS
 
 \end{document}
