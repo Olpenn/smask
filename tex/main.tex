@@ -1,0 +1,102 @@
+\documentclass[12pt,a4paper]{article}
+
+% Gör om till A5, dvs enklare läsning på dator
+%\documentclass[11pt,a5paper]{article}
+%\usepackage[a5paper, margin=0.7in]{geometry}
+
+\usepackage[utf8]{inputenc}
+\usepackage[hidelinks]{hyperref}
+\usepackage[english]{babel}
+\usepackage[T1]{fontenc}
+\usepackage[parfill]{parskip} 
+\usepackage[a4paper, total={6in,8in}]{geometry}
+\usepackage{mathtools,graphicx,url,amsmath, tikz, csquotes, biblatex, upgreek, newtxtext, newtxmath, tcolorbox, wrapfig, physics, enumerate}
+
+
+
+
+% Gör en mapp som heter bilder och lägg sedan in alla bilder där för att använda nedan.
+%\graphicspath{{./bilder/}}
+
+% Numrera i varje sektion, kommentera ut för att bli av med det.
+\numberwithin{equation}{section}
+\numberwithin{figure}{section}
+\newcounter{excount}
+\counterwithin{excount}{section}
+\setcounter{excount}{0}
+
+%annat
+%\newcommand{\abs}[1]{\left\lvert #1 \right\rvert }
+\newcommand{\unit}[1]{\textrm{ #1}}
+\newcommand{\der}[2]{\frac{d#1}{d#2}}
+\newcommand{\pd}[2]{\frac{\partial #1}{\partial #2}}
+\newcommand{\sgn}{\, \textrm{sgn}}
+\newcommand{\argmax}{\textrm{arg max}}
+\newcommand{\argmin}{\textrm{arg min}}
+
+%enhetsvektorer
+\newcommand{\iunit}{\, \hat{i}}
+\newcommand{\junit}{\, \hat{j}}
+\newcommand{\kunit}{\, \hat{k}}
+
+%lådor för definition, exempel och notering.
+\newcommand{\exempel}[2]{
+    \begin{tcolorbox}[colback=white,colframe=blue!80,coltitle=white,title={Example \stepcounter{excount} \theexcount : #1}]
+        #2
+    \end{tcolorbox}
+}
+\newcommand{\notera}[1]{
+    \begin{tcolorbox}[colback=red!5!white,colframe=red!75,coltitle=white,title= Note:]
+        #1
+    \end{tcolorbox}
+}
+\newcommand{\defin}[2]{
+    \begin{tcolorbox}[colback=yellow!5!white,colframe=yellow!100,coltitle=black,title= Definition: #1]
+        #2
+    \end{tcolorbox}
+}
+\newcommand{\sats}[2]{
+    \begin{tcolorbox}[colback=green!5!white,colframe=green!75,coltitle=black,title= Sats: #1]
+        #2
+    \end{tcolorbox}
+}
+
+%figurer, använda bara vanliga lol detta var inte värt det
+\newcommand{\figil}[2]{
+    \begin{center}
+        \includegraphics[width=#1\textwidth]{#2}
+    \end{center}
+}
+\newcommand{\figfl}[5]{
+    \begin{figure}[#1]
+        \centering
+        \includegraphics[width=#2\textwidth]{#3}
+        \caption{#4}
+        \label{fig:#5}
+    \end{figure}
+}
+\newcommand{\wf}[5]{
+    \begin{wrapfigure}{#1}{#2\textwidth}
+        \includegraphics[width=#2\textwidth]{#3}
+        \caption{#4}
+        \label{fig:#5}
+    \end{wrapfigure}}
+
+% kommentera ut för att använda.
+%\addbibresource{referenser.bib}
+
+\title{Statistical Machine Learning - Project}
+\author{Erik Björk, Jakob Hanson, \\ Olov Rahm, Simona St}
+\date{VT 2025}
+
+\begin{document}
+\maketitle
+
+\clearpage
+\tableofcontents % ta bort innan vi skickar in
+
+\include{plan}
+\printbibliography
+
+\end{document}
+\end{document}
