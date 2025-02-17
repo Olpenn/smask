@@ -9,9 +9,9 @@ df = pd.read_csv('training_data_vt2025.csv')
 #df.info()
 
 # Modify the dataset, emphasizing different variables
-df.iloc[:,12]=df.iloc[:,12]**2
-df.iloc[:,13]=np.sqrt(df.iloc[:,13])
-df.iloc[:,11] = df.iloc[:,11]**2
+#df.iloc[:,12]=df.iloc[:,12]**2
+#df.iloc[:,13]=np.sqrt(df.iloc[:,13])
+#df.iloc[:,11] = df.iloc[:,11]**2
 
 df['month_cos'] = np.cos(df.month*np.pi/12)
 df['month_sin'] = np.sin(df.month*np.pi/12)
