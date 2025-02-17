@@ -4,7 +4,6 @@
 
 ### Behålla
 Weekday
-Holiday
 Windspeed
 Summertime
 Temp
@@ -24,6 +23,7 @@ Cloudcover
 day_of_week
 Snow, aldrig ens med
 Dew
+Holiday
 
 ### Kvar:
 
