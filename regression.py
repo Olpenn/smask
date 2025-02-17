@@ -83,8 +83,8 @@ X_test = test.iloc[:,0:-2]
 Y_test = test['increase_stock']
 
 model = skl_lm.LogisticRegression()
-# testar att skala datan
 
+# Scaling the data, otherwise
 scaler = pp.StandardScaler().fit(X)
 model.fit(scaler.transform(X),Y)
 y_hat = model.predict(scaler.transform(X_test))
@@ -98,25 +98,11 @@ y_hat = model.predict(X_test)'''
 diff = pd.crosstab(y_hat, Y_test)
 print(f'Confusion matrix: \n {diff}')
 
-# Get recall, precision and accuracy:
-# Given from formulas
-
-TP = diff.iloc[0,0]
+# No. of TP,TN,FP,FN
+'''TP = diff.iloc[0,0]
 TN = diff.iloc[1,1]
 FP = diff.iloc[1,0]
-FN = diff.iloc[0,1]
+FN = diff.iloc[0,1]'''
 
-#accuracy = (TP+TN)/(TP+TN+FP+FN)
-accuracy = skl_m.accuracy_score(Y_test,y_hat,)
-precision = skl_m.precision_score(Y_test,y_hat,pos_label='high_bike_demand')
-recall = skl_m.recall_score(Y_test,y_hat,pos_label='high_bike_demand')
-f1 = skl_m.f1_score(Y_test,y_hat,pos_label='high_bike_demand')
-'''precision = TP/(TP+FP)
-recall = TP/(TP+FN)
-'''
-print(f'''
-RESULTS:
-accuracy: {accuracy:.3f}
-precision: {precision:.3f}
-recall: {recall:.3f}
-f1: {f1:.3f}''')
+# Get metrics:
+print(skl_m.classification_report(Y_test, y_hat))
