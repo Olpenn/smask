@@ -5,9 +5,9 @@
 ### Behålla
 Weekday
 Windspeed
-Summertime
+Visibility
 Temp
-Humidity
+
 
 ### Modifera:
 hour_of_day, gör om till tre klasser
@@ -24,10 +24,8 @@ day_of_week
 Snow, aldrig ens med
 Dew
 Holiday
-
-### Kvar:
-
-Visibility
+Summertime
+Humidity
 
 ### Klara modifikationer
 snowdepth
