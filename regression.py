@@ -3,6 +3,7 @@ import pandas as pd
 import matplotlib.pyplot as plt
 import sklearn.linear_model as skl_lm
 import sklearn.preprocessing as pp
+import sklearn.metrics as skl_m
 
 df = pd.read_csv('training_data_vt2025.csv')
 #df.info()
@@ -47,12 +48,12 @@ df['precip_bool'] = df['precip'].replace(0, False).astype(bool)
 #df.iloc[:,15]=df.iloc[:,15].replace('high_bike_demand',True)
 np.random.seed(0)
 
-df_modified=df[['holiday',
+df_modified=df[[#'holiday',
                 'weekday',
-                'summertime',
+                #'summertime',
                 'temp',
                 #'dew',
-                'humidity',
+                #'humidity',
                 'visibility',
                 'windspeed',
                 'month_cos',
@@ -105,12 +106,17 @@ TN = diff.iloc[1,1]
 FP = diff.iloc[1,0]
 FN = diff.iloc[0,1]
 
-accuracy = (TP+TN)/(TP+TN+FP+FN)
-precision = TP/(TP+FP)
+#accuracy = (TP+TN)/(TP+TN+FP+FN)
+accuracy = skl_m.accuracy_score(Y_test,y_hat,)
+precision = skl_m.precision_score(Y_test,y_hat,pos_label='high_bike_demand')
+recall = skl_m.recall_score(Y_test,y_hat,pos_label='high_bike_demand')
+f1 = skl_m.f1_score(Y_test,y_hat,pos_label='high_bike_demand')
+'''precision = TP/(TP+FP)
 recall = TP/(TP+FN)
-
+'''
 print(f'''
 RESULTS:
 accuracy: {accuracy:.3f}
 precision: {precision:.3f}
-recall: {recall:.3f}''')
+recall: {recall:.3f}
+f1: {f1:.3f}''')
