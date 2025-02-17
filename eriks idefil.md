@@ -1,13 +1,14 @@
 # Erik Idéfil
 
 ## Transformering av data:
-Visibility borde inte göra så stor skillnad? sqrt
 
 ### Behålla
 Weekday
 Holiday
 Windspeed
 Summertime
+Temp
+Humidity
 
 ### Modifera:
 hour_of_day, gör om till tre klasser
@@ -22,12 +23,17 @@ precipitation
 Cloudcover
 day_of_week
 Snow, aldrig ens med
+Dew
 
 ### Kvar:
-Temp
-Dew
-Humidity
+
 Visibility
+
+### Klara modifikationer
+snowdepth
+precipitation
+hour_of_day
+Month
 
 nr   Column          Non-Null Count  Dtype  
 ---  ------          --------------  -----  

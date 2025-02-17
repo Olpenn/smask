@@ -1,12 +1,12 @@
 # Fdb version 4
-["biber main"] 1739742675.16544 "main.bcf" "main.bbl" "main" 1739743055.16316 0
-  "main.bcf" 1739743055.04018 107606 f819d9615154407c1d3a0e1a4058e36d "pdflatex"
+["biber main"] 1739742675.16544 "main.bcf" "main.bbl" "main" 1739780914.23444 0
+  "main.bcf" 1739780914.10921 107606 f819d9615154407c1d3a0e1a4058e36d "pdflatex"
   (generated)
   "main.bbl"
   "main.blg"
   (rewritten before read)
-["pdflatex"] 1739743054.23086 "/home/erikburk/Skola/Statistisk Maskininlärning/smask/tex/main.tex" "main.pdf" "main" 1739743055.16343 0
-  "/home/erikburk/Skola/Statistisk Maskininlärning/smask/tex/main.tex" 1739743053.15819 2816 d9f25a3f08da4cb694f62a1a1ce19802 ""
+["pdflatex"] 1739780913.27845 "/home/erikburk/Skola/Statistisk Maskininlärning/smask/tex/main.tex" "main.pdf" "main" 1739780914.23477 0
+  "/home/erikburk/Skola/Statistisk Maskininlärning/smask/tex/main.tex" 1739780913.01921 2801 5b9dc586b42d26d70b91757c1aec5fe2 ""
   "/usr/share/texlive/texmf-dist/fonts/enc/dvips/newtx/ntx-ec-tlf.enc" 1640468671 2914 8283dfc24eaf1964346f843d7605c2b0 ""
   "/usr/share/texlive/texmf-dist/fonts/enc/dvips/tex-gyre/q-ts1.enc" 1529098226 3124 3813fd4c981d99822890a2861b0d274c ""
   "/usr/share/texlive/texmf-dist/fonts/map/fontname/texfonts.map" 1577235249 3524 cb3e574dea2d1052e39280babc910dc8 ""
@@ -219,13 +219,13 @@
   "/usr/share/texlive/texmf-dist/web2c/texmf.cnf" 1721433600 40900 887e0dc8cac988a9e9c574af364cf837 ""
   "/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map" 1731692698.7787 829552 1242246f2497e4d1f94913c35d152e20 ""
   "/var/lib/texmf/web2c/pdftex/pdflatex.fmt" 1733744790 7571283 f0fa01d553b7daf147ab0037623aff37 ""
-  "main.aux" 1739743055.03518 761 43ed816c4af9bc43f98eafc5b5f56bc6 "pdflatex"
+  "main.aux" 1739780914.10421 761 43ed816c4af9bc43f98eafc5b5f56bc6 "pdflatex"
   "main.bbl" 1739742675.73002 0 d41d8cd98f00b204e9800998ecf8427e "biber main"
-  "main.out" 1739743055.03618 787 90e4b98e01d871bdc9bd66ffc2a60cc5 "pdflatex"
-  "main.run.xml" 1739743055.04118 2224 bc6149f5caee4074188e1b81a66978d0 "pdflatex"
-  "main.tex" 1739743053.15819 2816 d9f25a3f08da4cb694f62a1a1ce19802 ""
-  "main.toc" 1739743055.04118 454 9589a2d6ad834d3ce255d5abd721ee08 "pdflatex"
-  "plan.aux" 1739743055.03418 4572 33b80f4a53f037f4c0f4bef43f18697d "pdflatex"
+  "main.out" 1739780914.10621 787 90e4b98e01d871bdc9bd66ffc2a60cc5 "pdflatex"
+  "main.run.xml" 1739780914.11021 2224 bc6149f5caee4074188e1b81a66978d0 "pdflatex"
+  "main.tex" 1739780913.01921 2801 5b9dc586b42d26d70b91757c1aec5fe2 ""
+  "main.toc" 1739780914.11021 454 9589a2d6ad834d3ce255d5abd721ee08 "pdflatex"
+  "plan.aux" 1739780914.10321 4572 33b80f4a53f037f4c0f4bef43f18697d "pdflatex"
   "plan.tex" 1739743025.23225 1834 7791d336fb393314b4267dea6932178d ""
   (generated)
   "main.aux"

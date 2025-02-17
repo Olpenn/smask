@@ -86,116 +86,35 @@ plt.title("stock increase vs snowdepth", fontsize=14)
 plt.show()
 '''
 
-# Vindhastighet
-'''
-# Define windspeed bins (adjust the range and step size as needed)
-bin_edges = np.arange(0, df['windspeed'].max() + 10, 10)  # Bins of size 10 km/h
+# Äntligen fick jag bra kod från ai, funkar så mycket bättre än alla andra typ. Byt category och bin_no för att få olika plottar.
 
-# Categorize the windspeed into bins
-df['windspeed_bin'] = pd.cut(df['windspeed'], bins=bin_edges, right=False)
+# Define the number of bins and calculate bin edges
+category='month'
+bin_no = 12
+max_val = max(df[category])
+bin_edges = np.linspace(0, max_val, bin_no+1)
+right_bin_edges = bin_edges+0.01
+# Create IntervalIndex for categories
+categories = pd.IntervalIndex.from_arrays(bin_edges,right_bin_edges)
 
-# Calculate the mean stock increase for each windspeed bin
-stock_per_wind_bin = df.groupby('windspeed_bin')['increase_stock'].mean() * 100
-stock_per_wind = df.groupby('increase_stock')['windspeed']
-# Plotting the results
+# Assign each value in 'A' to a category using pd.cut
+df['Category'] = pd.cut(df[category], bins=bin_edges).rename('Category')
+
+# Group by the created category and compute the mean of 'B'
+grouped_data = df.groupby('Category')['increase_stock'].mean()
+
+# Create a bar plot with specified style
 plt.figure(figsize=(10, 6))
-stock_per_wind_bin.plot(kind='bar', color='skyblue')
+grouped_data.plot(kind='bar', 
+                title=f'Mean increase_stock by {category}',
+                #rot_xticks=45, # Rotate x-tick labels for better readability
+                fontsize=12)
 
-# Adding labels and title
-plt.xlabel("Windspeed Range (km/h)", fontsize=12)
-plt.ylabel("Percentage of Stock Increase (%)", fontsize=12)
-plt.title("Stock Increase vs Windspeed Range", fontsize=14)
-plt.xticks(rotation=45)  # Rotate x labels for better readability
+# Add labels and title
+plt.xlabel(category)
+plt.ylabel(f'Mean increase_stock')
+plt.title(f'Mean increase_stock by {category}')
 
-# Show the plot
+# Display the plot
 plt.show()
 
-plt.figure(figsize=(10, 6))
-stock_per_wind.plot(kind='hist', color='skyblue',bins=10)
-
-# Adding labels and title
-plt.xlabel("Windspeed Range (km/h)", fontsize=12)
-plt.ylabel("Percentage of Stock Increase (%)", fontsize=12)
-plt.title("Stock Increase vs Windspeed Range", fontsize=14)
-plt.xticks(rotation=45)  # Rotate x labels for better readability
-
-# Show the plot
-plt.show()
-'''
-# Precipitation
-'''
-# Define windspeed bins (adjust the range and step size as needed)
-bin_edges = np.arange(0, df['precip'].max(), 1)  # Bins of size 10 km/h
-
-# Categorize the windspeed into bins
-df['precip_bin'] = pd.cut(df['precip'], bins=bin_edges, right=False)
-
-# Calculate the mean stock increase for each windspeed bin
-stock_per_wind_bin = df.groupby('precip_bin')['increase_stock'].mean() * 100
-
-# Plotting the results
-plt.figure(figsize=(10, 6))
-stock_per_wind_bin.plot(kind='bar', color='skyblue')
-
-# Adding labels and title
-plt.xlabel("precipitaton Range (mm)", fontsize=12)
-plt.ylabel("Percentage of Stock Increase (%)", fontsize=12)
-plt.title("Stock Increase vs precipitation", fontsize=14)
-plt.xticks(rotation=45)  # Rotate x labels for better readability
-
-# Show the plot
-plt.show()
-'''
-
-# Cloudcover
-
-'''# Define windspeed bins (adjust the range and step size as needed)
-bin_edges = np.arange(0, df['cloudcover'].max()+10, 10)  # Bins of size 10 km/h
-
-# Categorize the windspeed into bins
-df['cc_bin'] = pd.cut(df['cloudcover'], bins=bin_edges, right=False)
-
-# Calculate the mean stock increase for each windspeed bin
-stock_per_cc_bin = df.groupby('cc_bin')['increase_stock'].mean() * 100
-
-# Plotting the results
-plt.figure(figsize=(10, 6))
-#stock_per_cc_bin.plot(kind='bar', color='skyblue')
-stock_per_cc = df.groupby('cloudcover')['increase_stock'].mean() * 100
-stock_per_cc.plot(kind='hist', color='skyblue')
-
-# Adding labels and title
-plt.xlabel("Cloud cover Range (%)", fontsize=12)
-plt.ylabel("Percentage of Stock Increase (%)", fontsize=12)
-plt.title("Stock Increase vs cloud cover", fontsize=14)
-plt.xticks(rotation=45)  # Rotate x labels for better readability
-
-# Show the plot
-plt.show()
-'''
-# Snow
-
-#print('it apparently never snows, according to the training data.')
-
-# Visibility
-
-# Categorize the windspeed into bins
-
-# Calculate the mean stock increase for each windspeed bin
-stock_per_cc = df.groupby('increase_stock')['visibility']
-print(stock_per_cc)
-# Plotting the results
-plt.figure(figsize=(10, 6))
-stock_per_cc.plot(kind='hist',
-                  color='skyblue', 
-                  bins=30,
-                  )
-
-# Adding labels and title
-plt.xlabel("Cloud cover Range (%)", fontsize=12)
-plt.ylabel("Percentage of Stock Increase (%)", fontsize=12)
-plt.title("Stock Increase vs cloud cover", fontsize=14)
-plt.xticks(rotation=45)  # Rotate x labels for better readability
-
-# Show the plot
-plt.show()
