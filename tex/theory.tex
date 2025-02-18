@@ -1,13 +1,13 @@
-\section{Theoretical background}
+\section{Theoretical Background}
 
 
 \subsection{Mathematical Overview of the Models}
 \subsubsection{Logistic Regression}
 The backbone of logistic regression is linear regression, i.e. finding the least-squares solution to an equation system \begin{equation}
-    X\theta = b
+    X\theta = y
 \end{equation}
 given by the normal equations \begin{equation}
-    X^TX \theta = X^Tb
+    X^TX \theta = X^Ty
 \end{equation}
 where $X$ is the training data matrix, $\theta$ is the coefficient vector and $b$ is the training output. The parameter vector is then used in the sigmoid function: \begin{align}
     \sigma(z) &= \frac{e^{z}}{1+e^{z}}: \; \mathbb{R}\to [0,1],\\
@@ -25,5 +25,5 @@ By plotting the data and analyzing the .csv file, some observations were made. T
         \item \texttt{hour\_of\_day} - split into three boolean variables: \texttt{demand\_day}, \texttt{demand\_evening}, and \texttt{demand\_night}, reflecting if the time was between 08-14, 15-19 or 20-07 respectively. This was done because plotting the data showed three different plateaues of demand for the different time intervals. The original input was discarded.
         \item \texttt{snowdepth}, \texttt{precip} were transformed into booleans, reflecting if it was raining or if there was snow on the ground or not. This was done as there was no times where demand was high when it was raining or when there was snow on the ground.
     \end{itemize} 
-    \item \emph{Removed}: \texttt{cloudcover}, \texttt{day\_of\_week}, \texttt{snow}, \texttt{dew}, \texttt{holiday}, \texttt{summertime}, \texttt{humidity}. These were removed due to being redundant (e.g. \texttt{summertime}), not showing a clear trend (e.g. \texttt{cloudcover}) or both (e.g. \texttt{day\_of\_week}).
+    \item \emph{Removed}: \texttt{cloudcover}, \texttt{day\_of\_week}, \texttt{snow}, \texttt{dew}, \texttt{holiday}, \texttt{summertime}, \texttt{humidity}. These were removed due to being redundant (e.g. \texttt{summertime}), not showing a clear trend (e.g. \texttt{cloudcover}), giving a worse score when used, or all three (e.g. \texttt{day\_of\_week}).
 \end{itemize}
