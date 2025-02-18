@@ -15,6 +15,43 @@ where $X$ is the training data matrix, $\theta$ is the coefficient vector and $b
 \end{align}
 where $x$ is the testing input. This gives a statistical interpretation of the input vector. In the case of a binary True/False classification, the value of the sigmoid function then determines the class.
 
+    %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    \subsubsection{Non-parametric method: k--Nearest Neighbour}
+        \emph{$k$-- Nearest Neighbour}($k$--NN) is a distance based method that takes a $k$ amount of points from the training data set, called \emph{neighbours}, computes the distance between them, then assumes that the predicted value $\hat{y}(x_{*})$ follows the trend of the $k$-- nearest neighbours. Since $k$--NN uses the training data explicitly it is also called a \emph{nonparametric} method.
+    
+        The $k$--NN method can be divided into several subcategories, inter alias \emph{classification} $k$--NN method, \emph{regression}  $k$--NN method. In this project, we are using the classification method, since we are trying to predict in which of the two classes low, or high demand, the given, and predicted data points belong.
+    
+        The classification  $k$--NN algorithm evaluates $\hat{y}(x_{*})$ by computing the most frequently occurring class among the $k$ nearest neighbours. Here, we try to identify whether a data point belong to the high demand-class. Denote $c=$ high demand class. For simplicity, assume Euclidean ambiance. Then
+            \begin{equation*}
+                \hat{y}(x_*) = \arg \max_{c}  \sum_{n \in \mathbb{N}} \chi_{(y_i = c)} ,
+            \end{equation*}
+        where $y_i$ is the class of the nearest neighbour,  $\chi$ is the characteristic function 
+            \begin{equation*}
+                \chi_{(y_i = c)} = 
+                \begin{cases}
+                    1 \qquad \text{if } y_n = c, \\
+                    0 \qquad \text{otherwise}.
+                    
+                \end{cases}
+            \end{equation*}
+        It is very common to use a weighted sum to predict the next value, i.e.
+            \begin{equation*}
+                \hat{y}(x_*) =  arg \max_{c}  \sum_{n \in \mathbb{N}} \frac{\chi_{(y_n = c)}}{d(x, x_n)},
+            \end{equation*}
+        where $d$ is the standard Euclidean metric, computing the distance between an input $x$, and a neighbour $x_n$. 
+    
+
+
+
+
+
+
+
+
 \subsection{Input Data Modification}
 \label{sec:input data modification}
 By plotting the data and analyzing the .csv file, some observations were made. The different inputs were then changed accordingly:
