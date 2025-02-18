@@ -70,26 +70,12 @@ plt.title("Percentage of Stock Increase per Hour of the Day", fontsize=14)
 plt.xticks(ticks=range(24))  # Ensure all hours are labeled
 
 # Show the plot
-plt.show()
-
-# Snödjup, borde kunna modifieras för typ alla andra också.
-
-snowdepth=np.sort(np.array(df['snowdepth'].unique()))
-stock_per_snow = df.groupby('snowdepth')['increase_stock'].mean() * 100
-
-plt.figure()
-plt.plot(snowdepth,stock_per_snow)
-
-plt.xlabel("Snowdepth (mm)", fontsize=12)
-plt.ylabel("Percentage of Stock Increase (%)", fontsize=12)
-plt.title("stock increase vs snowdepth", fontsize=14)
-plt.show()
-'''
+plt.show()'''
 
 # Äntligen fick jag bra kod från ai, funkar så mycket bättre än alla andra typ. Byt category och bin_no för att få olika plottar.
 
 # Define the number of bins and calculate bin edges
-category='month'
+category='holiday'
 bin_no = 12
 max_val = max(df[category])
 bin_edges = np.linspace(0, max_val, bin_no+1)
