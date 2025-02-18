@@ -1,101 +1,90 @@
-\documentclass[12pt,a4paper]{article}
-
-% Gör om till A5, dvs enklare läsning på dator
-%\documentclass[11pt,a5paper]{article}
-%\usepackage[a5paper, margin=0.7in]{geometry}
-
-\usepackage[utf8]{inputenc}
-\usepackage[hidelinks]{hyperref}
-\usepackage[english]{babel}
-\usepackage[T1]{fontenc}
-\usepackage[parfill]{parskip} 
-\usepackage[a4paper, total={6in,8in}]{geometry}
-\usepackage{mathtools,graphicx,url,amsmath, tikz, csquotes, biblatex, upgreek, newtxtext, newtxmath, tcolorbox, wrapfig, physics, enumerate}
+\documentclass{article}
 
 
+\PassOptionsToPackage{square,comma,numbers,sort&compress}{natbib}
 
+% Keep this line uncomment in the first submission
+\usepackage{neurips_2024} 
 
-% Gör en mapp som heter bilder och lägg sedan in alla bilder där för att använda nedan.
-%\graphicspath{{./bilder/}}
+%Uncomment this line for the second submission
+%\usepackage[final]{neurips_2024}
 
-% Numrera i varje sektion, kommentera ut för att bli av med det.
-\numberwithin{equation}{section}
-\numberwithin{figure}{section}
-\newcounter{excount}
-\counterwithin{excount}{section}
-\setcounter{excount}{0}
+\usepackage{graphicx}
+\usepackage{caption}
+\usepackage{subcaption}
+\usepackage[utf8]{inputenc} % allow utf-8 input
+\usepackage[T1]{fontenc}    % use 8-bit T1 fonts
+\usepackage{hyperref}       % hyperlinks
+\usepackage{url}            % simple URL typesetting
+\usepackage{booktabs}       % professional-quality tables
+\usepackage{amsfonts}       % blackboard math symbols
+\usepackage{nicefrac}       % compact symbols for 1/2, etc.
+\usepackage{microtype}      % microtypography
+\usepackage{xcolor}         % colors
+\usepackage{physics}
+\usepackage{enumerate}
 
-%annat
-%\newcommand{\abs}[1]{\left\lvert #1 \right\rvert }
-\newcommand{\unit}[1]{\textrm{ #1}}
-\newcommand{\der}[2]{\frac{d#1}{d#2}}
-\newcommand{\pd}[2]{\frac{\partial #1}{\partial #2}}
-\newcommand{\sgn}{\, \textrm{sgn}}
-\newcommand{\argmax}{\textrm{arg max}}
-\newcommand{\argmin}{\textrm{arg min}}
-
-%enhetsvektorer
-\newcommand{\iunit}{\, \hat{i}}
-\newcommand{\junit}{\, \hat{j}}
-\newcommand{\kunit}{\, \hat{k}}
-
-%lådor för definition, exempel och notering.
-\newcommand{\exempel}[2]{
-    \begin{tcolorbox}[colback=white,colframe=blue!80,coltitle=white,title={Example \stepcounter{excount} \theexcount : #1}]
-        #2
-    \end{tcolorbox}
+\definecolor{codegreen}{rgb}{0,0.6,0}
+\definecolor{codegray}{rgb}{0.5,0.5,0.5}
+\definecolor{codepurple}{rgb}{0.58,0,0.82}
+\definecolor{backcolour}{rgb}{0.95,0.95,0.92}
+\usepackage{listings}
+\lstdefinestyle{mystyle}{
+backgroundcolor=\color{backcolour},
+commentstyle=\color{codegreen},
+keywordstyle=\color{magenta},
+numberstyle=\tiny\color{codegray},
+stringstyle=\color{codepurple},
+basicstyle=\footnotesize\ttfamily,
+breakatwhitespace=false,
+breaklines=true, captionpos=b,
+keepspaces=true, numbers=left,
+numbersep=5pt, showspaces=false,
+showstringspaces=false,
+showtabs=false, tabsize=2,
 }
-\newcommand{\notera}[1]{
-    \begin{tcolorbox}[colback=red!5!white,colframe=red!75,coltitle=white,title= Note:]
-        #1
-    \end{tcolorbox}
-}
-\newcommand{\defin}[2]{
-    \begin{tcolorbox}[colback=yellow!5!white,colframe=yellow!100,coltitle=black,title= Definition: #1]
-        #2
-    \end{tcolorbox}
-}
-\newcommand{\sats}[2]{
-    \begin{tcolorbox}[colback=green!5!white,colframe=green!75,coltitle=black,title= Sats: #1]
-        #2
-    \end{tcolorbox}
-}
+\lstset{style=mystyle}
 
-%figurer, använda bara vanliga lol detta var inte värt det
-\newcommand{\figil}[2]{
-    \begin{center}
-        \includegraphics[width=#1\textwidth]{#2}
-    \end{center}
+\bibliographystyle{abbrvnat}
+
+\title{Do we need more bikes?\\
+Project in Statistical Machine Learning}
+
+\author{
+  Erik ~Björk\\
+  \AND
+  Simona ~Stoyanoska
+  \AND
+  Olov ~Rahm\\
+  \AND
+  Jakob ~Hanson\\
 }
-\newcommand{\figfl}[5]{
-    \begin{figure}[#1]
-        \centering
-        \includegraphics[width=#2\textwidth]{#3}
-        \caption{#4}
-        \label{fig:#5}
-    \end{figure}
-}
-\newcommand{\wf}[5]{
-    \begin{wrapfigure}{#1}{#2\textwidth}
-        \includegraphics[width=#2\textwidth]{#3}
-        \caption{#4}
-        \label{fig:#5}
-    \end{wrapfigure}}
+\makeatletter
+\renewcommand{\@noticestring}{}
+\makeatother
 
-% kommentera ut för att använda.
-%\addbibresource{referenser.bib}
-
-\title{Statistical Machine Learning - Project}
-\author{Erik Björk, Jakob Hanson, \\ Olov Rahm, Simona St}
-\date{VT 2025}
-
+% -------------------- HÄR BÖRJAR DOKUMENTET -------------------
 \begin{document}
+
+
 \maketitle
 
-\clearpage
-\tableofcontents % ta bort innan vi skickar in
+\begin{abstract}
+  In this project we develop, and study different statistical machine learning models for predicting whether the number of available bikes at a given hour should be increased, a project by the District Department of Transportation in Washington D.C. The training data set consists of 1600 instances of hourly bike rentals, and a test set of 400 instances. The models for prediction we have used are: \emph{Logistic regression, Discriminant methods: LDA, QDA, $k$- Nearest Neighbour}, and \emph{Tree Based Methods}. We have found that THE MODEL gives best prediction, with accuracy ??????
+\end{abstract}
 
 \include{plan}
-\printbibliography
+\include{introduction}
+\include{theory}
+\include{data_analysis}
+\include{conclusion}
+
+\bibliography{ref}
+\appendix
+\include{appendix}
+
+%\lstinputlisting[language=python]{code.py} % lägg in i appendix typ?
+
+
 
 \end{document}
