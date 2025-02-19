@@ -19,8 +19,11 @@ where $x$ is the testing input. This gives a statistical interpretation of the i
 
 The random forest method is a based upon decision trees, i.e. dividing the data point into binary groups based on Gini-impurity, entropy or classification error, Gini being the most common. 
 These divisions are then used to create a binary tree shown in figure \ref(Tree) and where thee leaf-nodes are used to classify the target variables bases on the input. 
-As of itself the dicition tree tends to have unsatisfying results which leads to methodes like random forest that boost its accuracy.
-
+As of itself the disition tree tends to have unsatisfying results which leads to methodes like random forest and sandbagging that boost its accuracy.
+Sandbagging is a way to sampel the data in order to get multiple datasets from the same data. One then creates a desition-tree for every subset data to then combine them into one model. 
+This lessens the variance of the model but increases bias. This means that sandbagging can increase false negatives which in theis aplication makes i nonviable. 
+Random forest on the otherhand is viable, it creates mutiple trees whilse disrecarding random input variable this randomnes decreases overfitting creating a more robust model.  
+    
     %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
     %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
     %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
