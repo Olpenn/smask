@@ -33,9 +33,48 @@ In the data, there are some numerical and categorical features:
 
 \begin{figure}[htbp]
     \centering
-    
-    \caption{Bike demand vs. tempreature LÄGG IN FLER HÄR TYP.}
-    \label{fig:demand time of day}
+
+    \begin{subfigure}{0.30\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{demand_cloudcover.pdf}
+        \caption{Demand per cloudcover (percentage).}
+        \label{fig:demand temp}
+    \end{subfigure}
+    \hfill
+    \begin{subfigure}{0.30\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{demand_snowdepth.pdf}
+        \caption{Demand per day of week.}
+        \label{fig:demand snowdepth}
+    \end{subfigure}
+    \hfill
+    \begin{subfigure}{0.30\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{demand_precip.pdf}
+        \caption{Demand per day of week.}
+        \label{fig:demand precip}
+    \end{subfigure}
+    \begin{subfigure}{0.30\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{demand_dew.pdf}
+        \caption{Demand per dew point ($^\circ$C).}
+        \label{fig:demand dew}
+    \end{subfigure}
+    \begin{subfigure}{0.30\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{demand_temp.pdf}
+        \caption{Demand per temperature ($^\circ$).}
+        \label{fig:demand temp}
+    \end{subfigure}
+    \begin{subfigure}{0.30\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{demand_humidity.pdf}
+        \caption{Demand per humidity level (percentage).} 
+        \label{fig:demand humidity}
+    \end{subfigure}
+        \caption{Bike demand vs. various weather parameters.}
+        \label{fig:demand time of day}
+
 \end{figure}
 % Gör en bra figure här med alla typ idk, även holiday.
 
