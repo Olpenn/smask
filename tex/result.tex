@@ -10,17 +10,18 @@ The different models were tested and the accuracy where:
     \begin{center}
         Accuracy of the models
         \\
-        \begin{tabular}{|l|c|}
+        \begin{tabular}{|l|c|c|c|}
             \hline
-            Model & Accuracy \\
+            Model & Accuracy & Precision & Recall \\
             \hline
-            LDA & $86\%$ \\
-            QDA & $86\%$ \\
-            Random forrest & $91\%$\\
+            LDA & $85\%$ & $53\%$ & $50\%$ \\
+            QDA & $87\%$ & $67\%$ & $36\%$ \\
+            k-nearest neighbour & $92\%$ & $81\%$ & $70\%$ \\
+            Random Forest & $91\%$ & $77\%$ &$71\%$ \\
             \hline
         \end{tabular}
     \end{center}
 \end{table*}
-Here you can clearly see random forest is the best classifier and is the model that the group would use in production.
-This is because it has the highest accuracy score and f1 score for high_demand.
-The second part being the most important criteria meaning considering in this application false negatives are the most costly in this scenario causing a loss in revenue for the bike company. 
+Here you can clearly see random forest and k-nearest neighbour are the best classifiers both outpreforming linear and quadratic regression on accuracy, precision and recall.
+Out of random forest and kNN the group would proceed with the kNN method, its higher accuracy and precision score out waying the slightly better recall score of random forest. 
+This will mean a slight loss in income caused by increasing false negatives but is thought to be covered by fewer false positives.
