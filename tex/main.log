@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.21 (TeX Live 2020/W32TeX) (preloaded format=pdflatex 2020.11.16)  20 FEB 2025 16:47
+This is pdfTeX, Version 3.14159265-2.6-1.40.21 (TeX Live 2020/W32TeX) (preloaded format=pdflatex 2020.11.16)  20 FEB 2025 16:48
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -373,14 +373,8 @@ File: lstmisc.sty 2020/03/24 1.8d (Carsten Heinz)
 File: listings.cfg 2020/03/24 1.8d listings configuration
 ))
 Package: listings 2020/03/24 1.8d (Carsten Heinz)
- (c:/Users/Olle/Python/github/smask/tex/main.aux (c:/Users/Olle/Python/github/smask/tex/plan.aux) (c:/Users/Olle/Python/github/smask/tex/introduction.aux) (c:/Users/Olle/Python/github/smask/tex/theory.aux) (c:/Users/Olle/Python/github/smask/tex/data_analysis.aux
 
-LaTeX Warning: Label `fig:demand temp' multiply defined.
-
-
-LaTeX Warning: Label `sub@fig:demand temp' multiply defined.
-
-) (c:/Users/Olle/Python/github/smask/tex/conclusion.aux) (c:/Users/Olle/Python/github/smask/tex/appendix.aux))
+No file main.aux.
 \openout1 = `main.aux'.
 
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 71.
@@ -399,7 +393,6 @@ LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 71.
 LaTeX Font Info:    ... okay on input line 71.
 LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 71.
 LaTeX Font Info:    ... okay on input line 71.
-
 *geometry* driver: auto-detecting
 *geometry* detected driver: pdftex
 *geometry* verbose mode - [ preamble ] result:
@@ -502,7 +495,6 @@ Package: gettitlestring 2019/12/15 v1.6 Cleanup title references (HO)
 LaTeX Info: Redefining \ref on input line 71.
 LaTeX Info: Redefining \pageref on input line 71.
 LaTeX Info: Redefining \nameref on input line 71.
- (c:/Users/Olle/Python/github/smask/tex/main.out) (c:/Users/Olle/Python/github/smask/tex/main.out)
 \@outlinefile=\write3
 \openout3 = `main.out'.
 
@@ -572,7 +564,7 @@ File: ts1ptm.fd 2001/06/04 font definitions for TS1/ptm.
 
  (c:/Users/Olle/Python/github/smask/tex/theory.tex
 
-LaTeX Warning: Reference `(' on page 3 undefined on input line 21.
+LaTeX Warning: Reference `(' on page 3 undefined on input line 62.
 
 [3
 
@@ -582,64 +574,108 @@ LaTeX Warning: Reference `(' on page 3 undefined on input line 21.
 
 
 ]
-Underfull \hbox (badness 10000) in paragraph at lines 84--93
+
+LaTeX Warning: Reference `fig:kNN_comparison' on page 4 undefined on input line 94.
+
+
+LaTeX Warning: File `tex/NYkNNtest1.png' not found on input line 102.
+
+
+c:/Users/Olle/Python/github/smask/tex/theory.tex:102: Package pdftex.def Error: File `tex/NYkNNtest1.png' not found: using draft setting.
+
+See the pdftex.def package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.102 ...ics[width=\textwidth]{tex/NYkNNtest1.png}
+                                                  
+Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+
+LaTeX Warning: File `tex/NYkNNtest2.png' not found on input line 109.
+
+
+c:/Users/Olle/Python/github/smask/tex/theory.tex:109: Package pdftex.def Error: File `tex/NYkNNtest2.png' not found: using draft setting.
+
+See the pdftex.def package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.109 ...ics[width=\textwidth]{tex/NYkNNtest2.png}
+                                                  
+Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+[4]
+Underfull \hbox (badness 10000) in paragraph at lines 151--160
 
  []
 
-) [4]
+) [5]
 \openout2 = `data_analysis.aux'.
 
  (c:/Users/Olle/Python/github/smask/tex/data_analysis.tex
-<./bilder//demand_day.pdf, id=101, 638.3317pt x 633.49484pt>
+<./bilder//demand_day.pdf, id=69, 638.3317pt x 633.49484pt>
 File: ./bilder//demand_day.pdf Graphic file (type pdf)
 <use ./bilder//demand_day.pdf>
 Package pdftex.def Info: ./bilder//demand_day.pdf  used on input line 12.
 (pdftex.def)             Requested size: 178.86702pt x 177.503pt.
-<./bilder//demand_month.pdf, id=102, 615.84143pt x 641.27391pt>
+<./bilder//demand_month.pdf, id=70, 615.84143pt x 641.27391pt>
 File: ./bilder//demand_month.pdf Graphic file (type pdf)
 <use ./bilder//demand_month.pdf>
 Package pdftex.def Info: ./bilder//demand_month.pdf  used on input line 19.
 (pdftex.def)             Requested size: 178.86702pt x 186.24843pt.
-<./bilder//demand_hour.pdf, id=103, 610.02281pt x 230.51872pt>
+<./bilder//demand_hour.pdf, id=71, 610.02281pt x 230.51872pt>
 File: ./bilder//demand_hour.pdf Graphic file (type pdf)
 <use ./bilder//demand_hour.pdf>
 Package pdftex.def Info: ./bilder//demand_hour.pdf  used on input line 26.
 (pdftex.def)             Requested size: 317.9892pt x 120.16588pt.
-<./bilder//demand_cloudcover.pdf, id=104, 635.80664pt x 740.08055pt>
+<./bilder//demand_cloudcover.pdf, id=72, 635.80664pt x 740.08055pt>
 File: ./bilder//demand_cloudcover.pdf Graphic file (type pdf)
 <use ./bilder//demand_cloudcover.pdf>
 Package pdftex.def Info: ./bilder//demand_cloudcover.pdf  used on input line 39.
 (pdftex.def)             Requested size: 119.2467pt x 138.79863pt.
-<./bilder//demand_snowdepth.pdf, id=105, 647.30272pt x 751.57661pt>
+<./bilder//demand_snowdepth.pdf, id=73, 647.30272pt x 751.57661pt>
 File: ./bilder//demand_snowdepth.pdf Graphic file (type pdf)
 <use ./bilder//demand_snowdepth.pdf>
 Package pdftex.def Info: ./bilder//demand_snowdepth.pdf  used on input line 46.
 (pdftex.def)             Requested size: 119.2467pt x 138.45462pt.
-<./bilder//demand_precip.pdf, id=106, 647.30272pt x 768.04439pt>
+<./bilder//demand_precip.pdf, id=74, 647.30272pt x 768.04439pt>
 File: ./bilder//demand_precip.pdf Graphic file (type pdf)
 <use ./bilder//demand_precip.pdf>
 Package pdftex.def Info: ./bilder//demand_precip.pdf  used on input line 53.
 (pdftex.def)             Requested size: 119.2467pt x 141.4883pt.
-<./bilder//demand_dew.pdf, id=107, 635.80664pt x 745.05225pt>
+<./bilder//demand_dew.pdf, id=75, 635.80664pt x 745.05225pt>
 File: ./bilder//demand_dew.pdf Graphic file (type pdf)
 <use ./bilder//demand_dew.pdf>
 Package pdftex.def Info: ./bilder//demand_dew.pdf  used on input line 59.
 (pdftex.def)             Requested size: 119.2467pt x 139.73105pt.
-<./bilder//demand_temp.pdf, id=108, 624.31056pt x 745.05225pt>
+<./bilder//demand_temp.pdf, id=76, 624.31056pt x 745.05225pt>
 File: ./bilder//demand_temp.pdf Graphic file (type pdf)
 <use ./bilder//demand_temp.pdf>
 Package pdftex.def Info: ./bilder//demand_temp.pdf  used on input line 65.
 (pdftex.def)             Requested size: 119.2467pt x 142.30035pt.
-<./bilder//demand_humidity.pdf, id=109, 624.31056pt x 768.04439pt>
+<./bilder//demand_humidity.pdf, id=77, 624.31056pt x 768.04439pt>
 File: ./bilder//demand_humidity.pdf Graphic file (type pdf)
 <use ./bilder//demand_humidity.pdf>
 Package pdftex.def Info: ./bilder//demand_humidity.pdf  used on input line 71.
 (pdftex.def)             Requested size: 119.2467pt x 146.69171pt.
-) [5
+
+
+LaTeX Warning: Reference `fig:demand day month' on page 6 undefined on input line 81.
+
+
+LaTeX Warning: Reference `fig:demand weather' on page 6 undefined on input line 83.
+
+
+LaTeX Warning: Reference `fig:demand hour' on page 6 undefined on input line 85.
+
+) [6
 
 
 
- <c:/Users/Olle/Python/github/smask/tex/./bilder//demand_day.pdf> <c:/Users/Olle/Python/github/smask/tex/./bilder//demand_month.pdf> <c:/Users/Olle/Python/github/smask/tex/./bilder//demand_hour.pdf>] [6 <c:/Users/Olle/Python/github/smask/tex/./bilder//demand_cloudcover.pdf> <c:/Users/Olle/Python/github/smask/tex/./bilder//demand_snowdepth.pdf> <c:/Users/Olle/Python/github/smask/tex/./bilder//demand_precip.pdf> <c:/Users/Olle/Python/github/smask/tex/./bilder//demand_dew.pdf> <c:/Users/Olle/Python/github/smask/tex/./bilder//demand_temp.pdf> <c:/Users/Olle/Python/github/smask/tex/./bilder//demand_humidity.pdf>]
+ <c:/Users/Olle/Python/github/smask/tex/./bilder//demand_day.pdf> <c:/Users/Olle/Python/github/smask/tex/./bilder//demand_month.pdf> <c:/Users/Olle/Python/github/smask/tex/./bilder//demand_hour.pdf>] [7 <c:/Users/Olle/Python/github/smask/tex/./bilder//demand_cloudcover.pdf> <c:/Users/Olle/Python/github/smask/tex/./bilder//demand_snowdepth.pdf> <c:/Users/Olle/Python/github/smask/tex/./bilder//demand_precip.pdf> <c:/Users/Olle/Python/github/smask/tex/./bilder//demand_dew.pdf> <c:/Users/Olle/Python/github/smask/tex/./bilder//demand_temp.pdf> <c:/Users/Olle/Python/github/smask/tex/./bilder//demand_humidity.pdf>]
 \openout2 = `conclusion.aux'.
 
  (c:/Users/Olle/Python/github/smask/tex/conclusion.tex)
@@ -647,29 +683,34 @@ No file main.bbl.
 \openout2 = `appendix.aux'.
 
 (c:/Users/Olle/Python/github/smask/tex/appendix.tex) (c:/Users/Olle/Python/github/smask/tex/main.aux (c:/Users/Olle/Python/github/smask/tex/plan.aux) (c:/Users/Olle/Python/github/smask/tex/introduction.aux) (c:/Users/Olle/Python/github/smask/tex/theory.aux) (c:/Users/Olle/Python/github/smask/tex/data_analysis.aux) (c:/Users/Olle/Python/github/smask/tex/conclusion.aux) (c:/Users/Olle/Python/github/smask/tex/appendix.aux))
-Package rerunfilecheck Info: File `main.out' has not changed.
-(rerunfilecheck)             Checksum: 9276C3F3DAE576EE96B086849295E566;947.
 
+Package rerunfilecheck Warning: File `main.out' has changed.
+(rerunfilecheck)                Rerun to get outlines right
+(rerunfilecheck)                or use package `bookmark'.
+
+Package rerunfilecheck Info: Checksums for `main.out':
+(rerunfilecheck)             Before: <no file>
+(rerunfilecheck)             After:  71089D21823A1D0FB7E89A08614AF7CF;1044.
 
 LaTeX Warning: There were undefined references.
 
 
-LaTeX Warning: There were multiply-defined labels.
+LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
 
  ) 
 Here is how much of TeX's memory you used:
- 13403 strings out of 479485
- 205314 string characters out of 5875915
- 557347 words of memory out of 5000000
- 29997 multiletter control sequences out of 15000+600000
- 577901 words of font info for 136 fonts, out of 8000000 for 9000
+ 13456 strings out of 479485
+ 205333 string characters out of 5875915
+ 552540 words of memory out of 5000000
+ 30012 multiletter control sequences out of 15000+600000
+ 579426 words of font info for 158 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 80i,9n,86p,678b,575s stack positions out of 5000i,500n,10000p,200000b,80000s
-{c:/texlive/2020/texmf-dist/fonts/enc/dvips/base/8r.enc}{c:/texlive/2020/texmf-dist/fonts/enc/dvips/cm-super/cm-super-t1.enc}<c:/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb><c:/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb><c:/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb><c:/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi5.pfb><c:/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi7.pfb><c:/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb><c:/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb><c:/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb><c:/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy6.pfb><c:/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb><c:/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb><c:/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm7.pfb><c:/texlive/2020/texmf-dist/fonts/type1/public/cm-super/sftt1000.pfb><c:/texlive/2020/texmf-dist/fonts/type1/urw/helvetic/uhvr8a.pfb><c:/texlive/2020/texmf-dist/fonts/type1/urw/times/utmb8a.pfb><c:/texlive/2020/texmf-dist/fonts/type1/urw/times/utmr8a.pfb><c:/texlive/2020/texmf-dist/fonts/type1/urw/times/utmri8a.pfb>
-Output written on c:/Users/Olle/Python/github/smask/tex/main.pdf (6 pages, 285253 bytes).
+ 80i,9n,86p,1708b,567s stack positions out of 5000i,500n,10000p,200000b,80000s
+{c:/texlive/2020/texmf-dist/fonts/enc/dvips/base/8r.enc}{c:/texlive/2020/texmf-dist/fonts/enc/dvips/cm-super/cm-super-t1.enc}<c:/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb><c:/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb><c:/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb><c:/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi5.pfb><c:/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi7.pfb><c:/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi9.pfb><c:/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb><c:/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb><c:/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb><c:/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy6.pfb><c:/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb><c:/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb><c:/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm7.pfb><c:/texlive/2020/texmf-dist/fonts/type1/public/cm-super/sftt1000.pfb><c:/texlive/2020/texmf-dist/fonts/type1/urw/helvetic/uhvr8a.pfb><c:/texlive/2020/texmf-dist/fonts/type1/urw/times/utmb8a.pfb><c:/texlive/2020/texmf-dist/fonts/type1/urw/times/utmr8a.pfb><c:/texlive/2020/texmf-dist/fonts/type1/urw/times/utmri8a.pfb>
+Output written on c:/Users/Olle/Python/github/smask/tex/main.pdf (7 pages, 297783 bytes).
 PDF statistics:
- 539 PDF objects out of 1000 (max. 8388607)
- 198 compressed objects within 2 object streams
- 34 named destinations out of 1000 (max. 500000)
- 25750 words of extra memory for PDF output out of 29859 (max. 10000000)
+ 512 PDF objects out of 1000 (max. 8388607)
+ 169 compressed objects within 2 object streams
+ 38 named destinations out of 1000 (max. 500000)
+ 25646 words of extra memory for PDF output out of 29859 (max. 10000000)
 

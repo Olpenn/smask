@@ -70,7 +70,7 @@ print(f"Model Accuracy: {accuracy:.2f}")
 
 print(classification_report(y_test, y_pred))
 
-
+"""
 # Create a DataFrame showing correct and incorrect classifications
 df2 = pd.DataFrame({'True Label': y_test, 'Predicted Label': y_pred})
 df2 = pd.concat([X_test,df2], axis=1)
@@ -79,6 +79,6 @@ df2 = pd.concat([X_test,df2], axis=1)
 wrong_predictions = df2[df2['True Label'] != df2['Predicted Label']]
 wrong_predictions = wrong_predictions.sort_values(by=['True Label', 'temp'])
 print(wrong_predictions)
-"""
+
 print(df.loc[958])
 """
