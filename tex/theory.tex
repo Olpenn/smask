@@ -1,43 +1,4 @@
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\section{Introduction}
-Statistical machine learning is a subject that aims to build and train algorithms, that analyse large amount of data, and make predictions for the future, which are computed by using established statistical models, and tools from functional analysis. This is a project in supervised, statistical machine learning, where several models were created, and trained, in order to analyse which one of them gives best prediction for the project "Do we need more bikes", where we want to understand, and predict if there is a high, or low demand of city bikes in the public transportation of Washington, a project by the District Department of Transportation in Washington D.C..
 
-The data set used for training our models, consist of 15 variables, containing quantitative/qualitative data. We developed several models, and evaluated them with cross-validation, in order to understand which algorithm gives the best prediction. 
-
-
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\section{Data analysis}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Theoretical Background}
 
 %Here we review the theoretical background of the models. We follow mostly \cite{lindholm2022machine}.
@@ -99,14 +60,14 @@ As of itself the dicition tree tends to have unsatisfying results which leads to
         \centering
         \begin{subfigure}{0.45\textwidth}
             \centering
-            \includegraphics[width=\textwidth]{tex/NYkNNtest1.png}
+            \includegraphics[width=\textwidth]{NYkNNtest1.png}
             \caption{Uniform distance test for $k$.}
             \label{fig:kNN_fig1}
         \end{subfigure}
         \hfill
         \begin{subfigure}{0.45\textwidth}
             \centering
-            \includegraphics[width=\textwidth]{tex/NYkNNtest2.png}
+            \includegraphics[width=\textwidth]{NYkNNtest2.png}
             \caption{Weighted distance test for $k$.}
             \label{fig:kNN_fig2}
         \end{subfigure}
@@ -161,6 +122,11 @@ the covariance matrix is calculated for each class as follows:
     \mathbf{\Sigma}_m = \frac{1}{n_m - 1} \sum_{i:y_i=m} 
     (\mathbf{x}_i-\mathbf{\mu}_m)(\mathbf{x}_i-\mathbf{\mu}_m)^T
 \end{equation*}
+One thing to note about LDA and QDA is that the use of a multi-variable gaussian distribution benefints normally distributed
+variables. In this project however, there is a dependance on positive definite values which are not normally distributed
+by nature. This is an issue when using QDA since in the class of $\textit{high\_bike\_demand}$, all data points have a 
+snow depth of 0 and has hence no variance. This results in this class having a undefined inverse for the covariance matrix.
+The solution used was to exclude this variable from this model. 
 
 
 
