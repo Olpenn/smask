@@ -585,4 +585,92 @@ File: NYkNNtest2.png Graphic file (type png)
 <use NYkNNtest2.png>
 Package pdftex.def Info: NYkNNtest2.png  used on input line 70.
 (pdftex.def)             Requested size: 178.86702pt x 134.15085pt.
- [4 <c:/Users/Olle/Python/github/smask/tex/NYkNNtest1.png> <c
+ [4 <c:/Users/Olle/Python/github/smask/tex/NYkNNtest1.png> <c:/Users/Olle/Python/github/smask/tex/NYkNNtest2.png>]
+Underfull \hbox (badness 10000) in paragraph at lines 112--121
+
+ []
+
+) (c:/Users/Olle/Python/github/smask/tex/data_analysis.tex
+<./bilder//demand_day.pdf, id=121, 638.3317pt x 633.49484pt>
+File: ./bilder//demand_day.pdf Graphic file (type pdf)
+<use ./bilder//demand_day.pdf>
+Package pdftex.def Info: ./bilder//demand_day.pdf  used on input line 12.
+(pdftex.def)             Requested size: 178.86702pt x 177.503pt.
+<./bilder//demand_month.pdf, id=122, 615.84143pt x 641.27391pt>
+File: ./bilder//demand_month.pdf Graphic file (type pdf)
+<use ./bilder//demand_month.pdf>
+Package pdftex.def Info: ./bilder//demand_month.pdf  used on input line 19.
+(pdftex.def)             Requested size: 178.86702pt x 186.24843pt.
+<./bilder//demand_hour.pdf, id=123, 610.02281pt x 230.51872pt>
+File: ./bilder//demand_hour.pdf Graphic file (type pdf)
+<use ./bilder//demand_hour.pdf>
+Package pdftex.def Info: ./bilder//demand_hour.pdf  used on input line 26.
+(pdftex.def)             Requested size: 317.9892pt x 120.16588pt.
+<./bilder//demand_cloudcover.pdf, id=124, 635.80664pt x 740.08055pt>
+File: ./bilder//demand_cloudcover.pdf Graphic file (type pdf)
+<use ./bilder//demand_cloudcover.pdf>
+Package pdftex.def Info: ./bilder//demand_cloudcover.pdf  used on input line 39.
+(pdftex.def)             Requested size: 119.2467pt x 138.79863pt.
+<./bilder//demand_snowdepth.pdf, id=125, 647.30272pt x 751.57661pt>
+File: ./bilder//demand_snowdepth.pdf Graphic file (type pdf)
+<use ./bilder//demand_snowdepth.pdf>
+Package pdftex.def Info: ./bilder//demand_snowdepth.pdf  used on input line 46.
+(pdftex.def)             Requested size: 119.2467pt x 138.45462pt.
+<./bilder//demand_precip.pdf, id=126, 647.30272pt x 768.04439pt>
+File: ./bilder//demand_precip.pdf Graphic file (type pdf)
+<use ./bilder//demand_precip.pdf>
+Package pdftex.def Info: ./bilder//demand_precip.pdf  used on input line 53.
+(pdftex.def)             Requested size: 119.2467pt x 141.4883pt.
+<./bilder//demand_dew.pdf, id=127, 635.80664pt x 745.05225pt>
+File: ./bilder//demand_dew.pdf Graphic file (type pdf)
+<use ./bilder//demand_dew.pdf>
+Package pdftex.def Info: ./bilder//demand_dew.pdf  used on input line 59.
+(pdftex.def)             Requested size: 119.2467pt x 139.73105pt.
+<./bilder//demand_temp.pdf, id=128, 624.31056pt x 745.05225pt>
+File: ./bilder//demand_temp.pdf Graphic file (type pdf)
+<use ./bilder//demand_temp.pdf>
+Package pdftex.def Info: ./bilder//demand_temp.pdf  used on input line 65.
+(pdftex.def)             Requested size: 119.2467pt x 142.30035pt.
+<./bilder//demand_humidity.pdf, id=129, 624.31056pt x 768.04439pt>
+File: ./bilder//demand_humidity.pdf Graphic file (type pdf)
+<use ./bilder//demand_humidity.pdf>
+Package pdftex.def Info: ./bilder//demand_humidity.pdf  used on input line 71.
+(pdftex.def)             Requested size: 119.2467pt x 146.69171pt.
+ [5]) (c:/Users/Olle/Python/github/smask/tex/result.tex) (c:/Users/Olle/Python/github/smask/tex/conclusion.tex)
+No file main.bbl.
+[6 <c:/Users/Olle/Python/github/smask/tex/./bilder//demand_day.pdf> <c:/Users/Olle/Python/github/smask/tex/./bilder//demand_month.pdf> <c:/Users/Olle/Python/github/smask/tex/./bilder//demand_hour.pdf>] [7 <c:/Users/Olle/Python/github/smask/tex/./bilder//demand_cloudcover.pdf> <c:/Users/Olle/Python/github/smask/tex/./bilder//demand_snowdepth.pdf> <c:/Users/Olle/Python/github/smask/tex/./bilder//demand_precip.pdf> <c:/Users/Olle/Python/github/smask/tex/./bilder//demand_dew.pdf> <c:/Users/Olle/Python/github/smask/tex/./bilder//demand_temp.pdf> <c:/Users/Olle/Python/github/smask/tex/./bilder//demand_humidity.pdf>]
+\openout2 = `appendix.aux'.
+
+ (c:/Users/Olle/Python/github/smask/tex/appendix.tex (c:/texlive/2020/texmf-dist/tex/latex/listings/lstlang1.sty
+File: lstlang1.sty 2020/03/24 1.8d listings language file
+)
+Package hyperref Info: bookmark level for unknown lstlisting defaults to 0 on input line 3.
+ (c:/Users/Olle/Python/github/smask/tex/../linear_discriminant_analysis.py [8
+
+]) (c:/Users/Olle/Python/github/smask/tex/../quadratic_discriminant_analysis copy.py [9])) [10] (c:/Users/Olle/Python/github/smask/tex/main.aux (c:/Users/Olle/Python/github/smask/tex/appendix.aux))
+Package rerunfilecheck Info: File `main.out' has not changed.
+(rerunfilecheck)             Checksum: D8047352AF3C178FC4937E632EF83324;1082.
+
+
+LaTeX Warning: There were undefined references.
+
+
+LaTeX Warning: There were multiply-defined labels.
+
+ ) 
+Here is how much of TeX's memory you used:
+ 14124 strings out of 479485
+ 212665 string characters out of 5875915
+ 1107539 words of memory out of 5000000
+ 30522 multiletter control sequences out of 15000+600000
+ 580947 words of font info for 162 fonts, out of 8000000 for 9000
+ 1141 hyphenation exceptions out of 8191
+ 80i,10n,86p,1702b,2116s stack positions out of 5000i,500n,10000p,200000b,80000s
+{c:/texlive/2020/texmf-dist/fonts/enc/dvips/cm-super/cm-super-t1.enc}{c:/texlive/2020/texmf-dist/fonts/enc/dvips/base/8r.enc}<c:/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb><c:/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb><c:/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb><c:/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi5.pfb><c:/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi7.pfb><c:/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi9.pfb><c:/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb><c:/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb><c:/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb><c:/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy6.pfb><c:/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb><c:/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb><c:/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm7.pfb><c:/texlive/2020/texmf-dist/fonts/type1/public/cm-super/sftt0900.pfb><c:/texlive/2020/texmf-dist/fonts/type1/public/cm-super/sftt1000.pfb><c:/texlive/2020/texmf-dist/fonts/type1/urw/helvetic/uhvr8a.pfb><c:/texlive/2020/texmf-dist/fonts/type1/urw/times/utmb8a.pfb><c:/texlive/2020/texmf-dist/fonts/type1/urw/times/utmr8a.pfb><c:/texlive/2020/texmf-dist/fonts/type1/urw/times/utmri8a.pfb>
+Output written on c:/Users/Olle/Python/github/smask/tex/main.pdf (10 pages, 380978 bytes).
+PDF statistics:
+ 766 PDF objects out of 1000 (max. 8388607)
+ 412 compressed objects within 5 object streams
+ 189 named destinations out of 1000 (max. 500000)
+ 26296 words of extra memory for PDF output out of 29859 (max. 10000000)
+
