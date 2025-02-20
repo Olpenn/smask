@@ -4,10 +4,9 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Introduction}
-Statistical machine learning is a subject that aims to build and train algorithms, that can analyse (large) amount of data, and make predictions for the future. The predictions are computed by using established statistical models, and tools from functional analysis. This is a project in supervised, statistical machine learning, where several models were created, and trained, in order to analyse which one of them gives best prediction for the project "Do we need more bikes", where we want to understand, and predict if there is a high, or low demand of city bikes in the public transportation of Washington, a project by the District Department of Transportation in Washington D.C..
+Statistical machine learning is a subject that aims to build and train algorithms, that analyse large amount of data, and make predictions for the future, which are computed by using established statistical models, and tools from functional analysis. This is a project in supervised, statistical machine learning, where several models were created, and trained, in order to analyse which one of them gives best prediction for the project "Do we need more bikes", where we want to understand, and predict if there is a high, or low demand of city bikes in the public transportation of Washington, a project by the District Department of Transportation in Washington D.C..
 
-The data set used for training our models, consist of 15 variables, containing quantitative/qualitative data about ???????
-We evaluate the methods with cross-validation, in order to understand which algorithm gives the best prediction.
+The data set used for training our models, consist of 15 variables, containing quantitative/qualitative data. We developed several models, and evaluated them with cross-validation, in order to understand which algorithm gives the best prediction. 
 
 
 
@@ -91,27 +90,28 @@ As of itself the dicition tree tends to have unsatisfying results which leads to
         \end{equation*}
     where $d$ is the standard Euclidean metric, computing the distance between an input $x$, and a neighbour $x_n$. 
 
-    When using this model it is important to choose an optimal $k$--value. There are several tests for this, here we implement \emph{uniform weighting}, and \emph{distance weighting}. The first algorithm creates a $k$--NN model for each new $k \in [1, 500]$, and trains the model with uniform weights, i.e. the contribution of all neighbours is equal. Similarly, the latter trains a $k$--NN classifier for each $k \in [1, 500]$, with the difference that it uses distance based weighting, i.e. closer neighbours have greater influence. After testing different upper boundaries for $k$, the two models gave good results in the interval $[1,500]$, see Figure ??? . From the figures, we can see that the second test gives a better value for $k$, since the plot follows smoother trend, in comparison to the uniform weighting test, which makes it easier to identify an optimal $k$ value ($k = 120$). Moreover, the distance weighting algorithm is providing results for larger values of $k$, that is for $k \in [1, 400)$ before the curve converges, while the uniform weighting algorithm converges earlier, when $k = 290$. This means that for large $k$, both test algorithms make prediction based on the most common class in the data set, instead of making prediction based on the behaviour of the neighbours. Thus for sufficiently large $k$, for any given data point, the model will consider unnecessarily large amount of neighbours, and the prediction will be evaluated to belong to the most frequent class. Since the distance weighting has a larger range of $k$--value, it should be more trustworthy.
+    When using this model it is important to choose an optimal $k$--value. There are several tests for this, here we implement \emph{uniform weighting}, and \emph{distance weighting}. The first algorithm creates a $k$--NN model for each new $k \in [1, 500]$, and trains the model with uniform weights, i.e. the contribution of all neighbours is equal. Similarly, the latter trains a $k$--NN classifier for each $k \in [1, 500]$, with the difference that it uses distance based weighting, i.e. closer neighbours have greater influence. After testing different upper boundaries for $k$, the two models gave good results in the interval $[1,500]$, see Figure \ref{fig:kNN_comparison}. From the figures, we can see that the second test gives a better value for $k$, since the plot follows smoother trend, in comparison to the uniform weighting test, which makes it easier to identify an optimal $k$ value ($k = 120$). Moreover, the distance weighting algorithm is providing results for larger values of $k$, that is for $k \in [1, 400)$ before the curve converges, while the uniform weighting algorithm converges earlier, when $k = 290$. This means that for large $k$, both test algorithms make prediction based on the most common class in the data set, instead of making prediction based on the behaviour of the neighbours. Thus for sufficiently large $k$, for any given data point, the model will consider unnecessarily large amount of neighbours, and the prediction will be evaluated to belong to the most frequent class. Since the distance weighting has a larger range of $k$--value, it should be more trustworthy.
     
-
     \begin{figure}[htbp]
-    \centering
-    \begin{subfigure}{0.45\textwidth}
         \centering
-        \includegraphics[width=\textwidth]{k-valueTest1ngh500.png}
-        \caption{Uniform distance test for $k$.}
-        \label{fig:kNN_fig1}
-    \end{subfigure}
-    \hfill
-    \begin{subfigure}{0.45\textwidth}
-        \centering
-        \includegraphics[width=\textwidth]{k-valueTest2ngh500.png}
-        \caption{Weighted distance test for $k$.}
-        \label{fig:kNN_fig2}
-    \end{subfigure}
-    \caption{Test for choosing an optimal $k$--value.}
-    \label{fig:kNN_comparison}
-\end{figure}
+        \begin{subfigure}{0.45\textwidth}
+            \centering
+            \includegraphics[width=\textwidth]{k-valueTest1ngh500.png}
+            \caption{Uniform distance test for $k$.}
+            \label{fig:kNN_fig1}
+        \end{subfigure}
+        \hfill
+        \begin{subfigure}{0.45\textwidth}
+            \centering
+            \includegraphics[width=\textwidth]{k-valueTest2ngh500.png}
+            \caption{Weighted distance test for $k$.}
+            \label{fig:kNN_fig2}
+        \end{subfigure}
+        \caption{Test for choosing an optimal $k$--value.}
+        \label{fig:kNN_comparison}
+    \end{figure}
+
+    With the $k = 280$, the
 
     
 
