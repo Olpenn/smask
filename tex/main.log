@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.26 (TeX Live 2024) (preloaded format=pdflatex 2025.2.19)  20 FEB 2025 22:32
+This is pdfTeX, Version 3.141592653-2.6-1.40.26 (TeX Live 2024) (preloaded format=pdflatex 2025.2.19)  20 FEB 2025 22:33
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -679,25 +679,26 @@ LaTeX Warning: `h' float specifier changed to `ht'.
 ./result.tex:26: Missing $ inserted.
 <inserted text> 
                 $
-l.26 ...est accurascy score and f1 score for high_
+l.26 ...hest accuracy score and f1 scora for high_
                                                   demand.
 I've inserted a begin-math/end-math symbol since I think
 you left one out. Proceed, with fingers crossed.
 
-./result.tex:28: Missing $ inserted.
+) (./conclusion.tex
+./conclusion.tex:1: Missing $ inserted.
 <inserted text> 
                 $
-l.28 
-     
+l.1 
+    
 I've inserted a begin-math/end-math symbol since I think
 you left one out. Proceed, with fingers crossed.
 
 
-Overfull \hbox (431.27036pt too wide) in paragraph at lines 25--28
-\T1/ptm/m/n/10 (-20) high$[]\OML/cmm/m/it/10 emand:Thesecondpartbeingthemostimportantcriteriameaningconsideringinthisapplicationfalsenegativesarethemostcostlyinthisscenariocausingalossinrevenueforthebikecompany:$ 
+Overfull \hbox (232.39508pt too wide) in paragraph at lines 25--1
+\T1/ptm/m/n/10 (-20) high$[]\OML/cmm/m/it/10 emand:Thesecondpartbeingthemostimoprtantcriteriameaningconsideringinthisaplicationfalsenegativesarethemostcostlyinthissenario:$ 
  []
 
-) (./conclusion.tex)
+)
 No file main.bbl.
 
 Underfull \vbox (badness 1675) has occurred while \output is active []
@@ -741,7 +742,7 @@ Here is how much of TeX's memory you used:
  1141 hyphenation exceptions out of 8191
  79i,10n,93p,1707b,2239s stack positions out of 10000i,1000n,20000p,200000b,200000s
 </usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi5.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi7.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi9.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy6.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm7.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/cm-super/sftt0900.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/cm-super/sftt1000.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/urw/helvetic/uhvr8a.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/urw/times/utmb8a.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/urw/times/utmr8a.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/urw/times/utmri8a.pfb>
-Output written on main.pdf (10 pages, 397816 bytes).
+Output written on main.pdf (10 pages, 397563 bytes).
 PDF statistics:
  731 PDF objects out of 1000 (max. 8388607)
  359 compressed objects within 4 object streams

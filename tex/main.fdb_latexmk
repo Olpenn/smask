@@ -1,5 +1,5 @@
 # Fdb version 4
-["bibtex main"] 0 "main.aux" "main.bbl" "main" 1740087127.40104 0
+["bibtex main"] 0 "main.aux" "main.bbl" "main" 1740087229.32366 0
   "/usr/local/texlive/2024/texmf-dist/bibtex/bst/natbib/abbrvnat.bst" 1233624470 26532 66bed5cc59495faaa3f9ae9af9fa5e42 ""
   "appendix.aux" 1740085364.92572 1253 02494c6524a76f16484b0227525983a3 "pdflatex"
   "main.aux" 0 -1 0 "pdflatex"
@@ -8,7 +8,7 @@
   "main.bbl"
   "main.blg"
   (rewritten before read)
-["pdflatex"] 1740087126.5316 "/Users/jakobhanson/Documents/smask/tex/main.tex" "main.pdf" "main" 1740087127.40118 2
+["pdflatex"] 1740087228.45365 "/Users/jakobhanson/Documents/smask/tex/main.tex" "main.pdf" "main" 1740087229.3238 2
   "../linear_discriminant_analysis.py" 1740085204.81375 2278 2617323393e48fe27c9e72684a8ddc42 ""
   "../quadratic_discriminant_analysis copy.py" 1740085204.81389 2026 418e45974640d3a493aa759e2374f13c ""
   "/Users/jakobhanson/Documents/smask/tex/main.tex" 1740085204.82107 2766 8edfed44f184bcd64756599299e1d228 ""
@@ -162,7 +162,7 @@
   "/usr/local/texlive/2024/texmf.cnf" 1710266656 577 e590dabc9e28c5b61546e15f63eebcdf ""
   "NYkNNtest1.png" 1740085204.81413 20957 63d5645ebe6af4ba3060f59f8b076739 ""
   "NYkNNtest2.png" 1740085204.81431 21274 c63d9d8ef237a89688f41db092a76f92 ""
-  "appendix.aux" 1740087127.19202 1252 d5e7936f81433ff4dc5882b142e1c66a "pdflatex"
+  "appendix.aux" 1740087229.11588 1252 d5e7936f81433ff4dc5882b142e1c66a "pdflatex"
   "appendix.tex" 1740085204.81458 215 ef1bedafa734941238d1602b2ad9df29 ""
   "bilder/demand_cloudcover.pdf" 1739968912.80279 13316 5ebacba29a53ef14b4ac0952d923e360 ""
   "bilder/demand_day.pdf" 1739968912.80418 14011 e7ae028463e3d654aa1fef4ba252acdd ""
@@ -176,13 +176,13 @@
   "conclusion.tex" 1739806973.62358 0 d41d8cd98f00b204e9800998ecf8427e ""
   "data_analysis.tex" 1740085204.81518 4010 66e686ceb5f2b3776ce589b424d09e4c ""
   "introduction.tex" 1740085204.81543 943 b3bee2ae7cdf2285716ea2517d84a45d ""
-  "main.aux" 1740087127.19225 4993 3905bb248185497b235520ccd1190b05 "pdflatex"
+  "main.aux" 1740087229.11611 4993 3905bb248185497b235520ccd1190b05 "pdflatex"
   "main.bbl" 0 -1 0 "bibtex main"
-  "main.out" 1740087127.19301 2581 bf68315d9a41549c046408be26358aa9 "pdflatex"
+  "main.out" 1740087229.11688 2581 bf68315d9a41549c046408be26358aa9 "pdflatex"
   "main.tex" 1740085204.82107 2766 8edfed44f184bcd64756599299e1d228 ""
   "neurips_2024.sty" 1739806973.62641 11625 b5f853b54a7a098e9e5b837f826d5daa ""
   "plan.tex" 1739802658.50056 1834 7791d336fb393314b4267dea6932178d ""
-  "result.tex" 1740087071.10305 1001 78bec4a46906f320d0017e40ad59ae32 ""
+  "result.tex" 1740087161.60965 948 e4316531063e7b9b8bcd88e65672c586 ""
   "theory.tex" 1740085204.8218 11423 b596d37d2d75a8bb07eb8691ed7d233e ""
   (generated)
   "appendix.aux"
