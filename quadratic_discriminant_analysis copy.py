@@ -1,17 +1,15 @@
 import pandas as pd
 import numpy as np
-import matplotlib.pyplot as plt
 from sklearn.model_selection import train_test_split
 from sklearn.discriminant_analysis import QuadraticDiscriminantAnalysis
-from sklearn.linear_model import LogisticRegression
 from sklearn.metrics import accuracy_score
 from sklearn.metrics import classification_report
 
 df = pd.read_csv('training_data_vt2025.csv')
 
 # modify the month to represent the periodicity that is observed in data.
-df['month_cos'] = np.cos(df['month']*np.pi/12)
-df['month_sin'] = np.sin(df['month']*np.pi/12)
+df['month_cos'] = np.cos(df['month']*2*np.pi/12)
+df['month_sin'] = np.sin(df['month']*2*np.pi/12)
 
 # time of day, replaced with 3 bool values: is_night, is_day and is_evening, 
 # adding the new categories back in the end.
@@ -30,7 +28,6 @@ df = pd.concat([df, df_dummies], axis=1)
 # Create bool of snowdepth and percipitation
 df['snowdepth_bool'] = df['snowdepth'].where(df['snowdepth'] == 0, 1)
 df['precip_bool'] = df['precip'].where(df['precip'] == 0, 1)
-# df['increase_stock'] = df['increase_stock'].map({'low_bike_demand':0, 'high_bike_demand':1})
 
 # Seperate training data from target
 X=df[[#'holiday',
@@ -69,16 +66,3 @@ accuracy = accuracy_score(y_test, y_pred)
 print(f"Model Accuracy: {accuracy:.2f}")
 
 print(classification_report(y_test, y_pred))
-
-"""
-# Create a DataFrame showing correct and incorrect classifications
-df2 = pd.DataFrame({'True Label': y_test, 'Predicted Label': y_pred})
-df2 = pd.concat([X_test,df2], axis=1)
-
-# Filter only misclassified rows
-wrong_predictions = df2[df2['True Label'] != df2['Predicted Label']]
-wrong_predictions = wrong_predictions.sort_values(by=['True Label', 'temp'])
-print(wrong_predictions)
-
-print(df.loc[958])
-"""
