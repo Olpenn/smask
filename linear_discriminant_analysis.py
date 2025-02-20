@@ -13,6 +13,9 @@ df = pd.read_csv('training_data_vt2025.csv')
 df['month_cos'] = np.cos(df['month']*np.pi/12)
 df['month_sin'] = np.sin(df['month']*np.pi/12)
 
+df['hour_cos'] = np.cos(df['hour_of_day']*np.pi/24)
+df['hour_sin'] = np.sin(df['hour_of_day']*np.pi/24)
+
 # time of day, replaced with 3 bool values: is_night, is_day and is_evening, 
 # adding the new categories back in the end.
 def categorize_demand(hour):
@@ -40,13 +43,15 @@ X=df[[#'holiday',
         #'humidity',
         #'visibility',
         #'windspeed',
-        'month',
-        #'month_cos',
-        #'month_sin',
+        #'month',
+        'month_cos',
+        'month_sin',
         #'hour_of_day',
         'is_day',
         'is_evening',
         'is_night',
+        #'hour_cos',
+        #'hour_sin',
         'snowdepth_bool',
         'precip_bool'
         ]]

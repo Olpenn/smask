@@ -50,7 +50,50 @@ As of itself the dicition tree tends to have unsatisfying results which leads to
             \end{equation*}
         where $d$ is the standard Euclidean metric, computing the distance between an input $x$, and a neighbour $x_n$. 
     
+\subsubsection{Discriminant analysis: LDA and QDA}
 
+Linear Discriminant Analysis is a generative model, which means it is a model that's creating and using a probaility 
+distribution $P(\mathbf{x}, y)$ to create an estimation for the probability $P(y=m|\mathbf{x})$ using bayes theorem.
+\\
+Bayes theorem is:
+\begin{equation*}
+    p(y|\mathbf{x}) = \frac{p(y,\mathbf{x})}{p(\mathbf{x})} = \frac{p(y)p(\mathbf{x}|y)}{\int_y p(y,\mathbf{x})}
+\end{equation*}
+For the discrete version it is obtained:
+\begin{equation*}
+    p(y=m|\mathbf{x}) = \frac{p(y=m)p(\mathbf{x}|y=m)}{\sum_{m=1}^{M} p(y=m) p(\mathbf{x}|y=m)}
+\end{equation*}
+For this form of the equation to be useful, it is neccesary to obtain an accurate estimation of $p(y=m)$ and $p(\mathbf{x}|y=m)$
+for all classes m. 
+\\
+In LDA, $p(y=m)$ is estimated by counting the percentage of data points (in the training data) being in each of the classes 
+and using that percentage as the probability of a data point being in that class. In mathematical terms:
+\begin{equation*}
+    p(y=m) = \frac{1}{n}\sum_{i=1}^{n}\mathbb{I}\{y_i=m\} = \frac{n_m}{n}
+\end{equation*}  
+To estimete the probability distribution $p(\mathbf{x}|y=m)$, a multi-dimensional gaussian distribution is used: 
+\begin{equation*}
+    \mathcal{N}(\mathbf{x}|\mathbf{\mu}, \mathbf{\Sigma}) = \frac{1}{(2 \pi)^{d/2} |\mathbf{\Sigma}|^{1/2}} 
+    exp \left( -\frac{1}{2}(\mathbf{x}-\mathbf{\mu})^T \mathbf{\Sigma}^{-1} (\mathbf{x}-\mathbf{\mu})\right)
+\end{equation*}
+Where $\mathbf{x}$ is the d-dimentional data point, $\mathbf{\mu}$ is the (d-dimentional) mean of the random variable.
+$\mathbf{\Sigma}$ is the symetric, positive definite covariance matrix defined by:
+\begin{equation*}
+    \mathbf{\Sigma} = \frac{1}{n-M}\sum_{m=1}^{M} \sum_{i:y_i=m} 
+    (\mathbf{x}_i-\mathbf{\mu}_m)(\mathbf{x}_i-\mathbf{\mu}_m)^T
+\end{equation*}
+Using these estimations results in an expression for the quantity $p(y=m|\mathbf{x}) \forall m$. LDA then uses maximum
+likelyhood to categorize an input $\mathbf{x}$ into a class $m$.
+\\
+\\
+Quadratic discriminant analysis (QDA) is heavily based of LDA with the sole difference being how the covariance matrix 
+$\mathbf{\Sigma}$ is created.
+In LDA, the covariance matrix is assumed to be the same for data in each and every class. In QDA however,
+the covariance matrix is calculated for each class as follows:
+\begin{equation*}
+    \mathbf{\Sigma}_m = \frac{1}{n_m - 1} \sum_{i:y_i=m} 
+    (\mathbf{x}_i-\mathbf{\mu}_m)(\mathbf{x}_i-\mathbf{\mu}_m)^T
+\end{equation*}
 
 
 
