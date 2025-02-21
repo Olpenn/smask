@@ -1,21 +1,26 @@
 
 \section{Theoretical Background}
 
-%Here we review the theoretical background of the models. We follow mostly \cite{lindholm2022machine}.
+Here we review the theoretical background of the models. We follow mostly \cite{lindholm2022machine}.
+
+Let $\{ \boldsymbol{x}_i, y_i \}_{n \in \mathbb{N}}$ be the training data set, where $\boldsymbol{x_i}$ is a matrix representing the input, and $y_i$ is the  output.
 
 \subsection{Mathematical Overview of the Models}
+
     \subsubsection{Logistic Regression}
-    The backbone of logistic regression is linear regression, i.e. finding the least-squares solution to an equation system \begin{equation}
+    The backbone of logistic regression is linear regression, i.e. finding the least-squares solution to an equation system 
+    \begin{equation*}
         X\theta = y
-    \end{equation}
-    given by the normal equations \begin{equation}
+    \end{equation*}
+    given by the normal equations 
+    \begin{equation*}
         X^TX \theta = X^Ty
-    \end{equation}
-    where $X$ is the training data matrix, $\theta$ is the coefficient vector and $b$ is the training output. The parameter vector is then used in the sigmoid function: \begin{align}
-        \sigma(z) &= \frac{e^{z}}{1+e^{z}}: \; \mathbb{R}\to [0,1],\\
-        z &= x^T \theta,
-    \end{align}
-    where $x$ is the testing input. This gives a statistical interpretation of the input vector. In the case of a binary True/False classification, the value of the sigmoid function then determines the class.
+    \end{equation*}
+    where $X$ is the training data matrix, $\theta$ is the coefficient vector and $b$ is the training output. The parameter vector is then used in the sigmoid function $\sigma(z): \mathbb{R}\to [0,1]$
+    \begin{equation*}
+        \sigma(z) = \frac{e^{z}}{1+e^{z}}:
+    \end{equation*}
+    where $  z = x^T \theta$, and $x$ is the testing input. This gives a statistical interpretation of the input vector. In the case of a binary True/False classification, the value of the sigmoid function then determines the class.
 
 \subsubsection{Random forest}
 
