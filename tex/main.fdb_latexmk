@@ -1,13 +1,13 @@
 # Fdb version 3
-["bibtex main"] 1740136219 "main.aux" "main.bbl" "main" 1740136219
+["bibtex main"] 1740136246 "main.aux" "main.bbl" "main" 1740136246
   "c:/Users/Olle/Python/github/smask/tex/appendix.aux" 1740136183 1614 ede479df37efd0a1e03af27179f2cbac ""
   "c:/texlive/2020/texmf-dist/bibtex/bst/natbib/abbrvnat.bst" 1605539401 26532 66bed5cc59495faaa3f9ae9af9fa5e42 ""
   "main.aux" 1740136183 5845 2c73829ecccddcbe4c92a4f9ab6aaf3b "pdflatex"
   "ref.bib" 0 -1 0 ""
   (generated)
-  "main.bbl"
   "main.blg"
-["pdflatex"] 1740136179 "c:/Users/Olle/Python/github/smask/tex/main.tex" "c:/Users/Olle/Python/github/smask/tex/main.pdf" "main" 1740136219
+  "main.bbl"
+["pdflatex"] 1740136179 "c:/Users/Olle/Python/github/smask/tex/main.tex" "c:/Users/Olle/Python/github/smask/tex/main.pdf" "main" 1740136246
   "../Tree.py" 1740132653 3729 8841fdf5921079f44d1866c2b01662fb ""
   "../knn.py" 1739970320 4151 4e270158234eee4def31eaffdf5609f4 ""
   "../linear_discriminant_analysis.py" 1740070580 2354 2617323393e48fe27c9e72684a8ddc42 ""
@@ -196,10 +196,10 @@
   "result.tex" 1740136178 1852 a1e7e485a020dc8d8893f5dc1607098b ""
   "theory.tex" 1740132653 11578 b596d37d2d75a8bb07eb8691ed7d233e ""
   (generated)
-  "main.log"
-  "main.out"
-  "c:/Users/Olle/Python/github/smask/tex/main.log"
-  "appendix.aux"
   "main.pdf"
-  "main.aux"
+  "main.out"
   "c:/Users/Olle/Python/github/smask/tex/main.pdf"
+  "appendix.aux"
+  "c:/Users/Olle/Python/github/smask/tex/main.log"
+  "main.log"
+  "main.aux"
