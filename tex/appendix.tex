@@ -1,0 +1,487 @@
+
+  
+\section*{Logistic regression method code}
+\begin{lstlisting}[language = Python]
+
+import numpy as np
+import pandas as pd
+import matplotlib.pyplot as plt
+import sklearn.linear_model as skl_lm
+import sklearn.preprocessing as pp
+import sklearn.metrics as skl_m
+
+df = pd.read_csv('training_data_vt2025.csv')
+#df.info()
+
+# Modify the dataset, emphasizing different variables
+#df.iloc[:,12]=df.iloc[:,12]**2
+#df.iloc[:,13]=np.sqrt(df.iloc[:,13])
+#df.iloc[:,11] = df.iloc[:,11]**2
+
+df['month_cos'] = np.cos(df.month*np.pi/12)
+df['month_sin'] = np.sin(df.month*np.pi/12)
+
+# time of day, replaed with low,medium and high demand, 
+# adding the new categories back in the end.
+def categorize_demand(hour):
+    if 20 <= hour or 7 >= hour:
+        return 'night'
+    elif 8 <= hour <= 14:
+        return 'day'
+    elif 15 <= hour <= 19:
+        return 'evening'
+
+df['demand_category'] = df['hour_of_day'].apply(categorize_demand)
+df_dummies = pd.get_dummies(df['demand_category'], prefix='demand', drop_first=False)
+df = pd.concat([df, df_dummies], axis=1)
+
+# converting to bools
+def if_zero(data):
+    if data == 0:
+        return True
+    else:
+        return False
+
+# temperature
+
+df['snowdepth_bool'] = df['snowdepth'].replace(0, False).astype(bool)
+df['precip_bool'] = df['precip'].replace(0, False).astype(bool)
+
+# Split into train and test:
+
+#df.iloc[:,15]=df.iloc[:,15].replace('low_bike_demand',False)
+#df.iloc[:,15]=df.iloc[:,15].replace('high_bike_demand',True)
+np.random.seed(0)
+
+df_modified=df[[#'holiday',
+                'weekday',
+                #'summertime',
+                'temp',
+                #'dew',
+                'humidity',
+                'visibility',
+                'windspeed',
+                'month_cos',
+                'month_sin',
+                'demand_day',
+                'demand_evening',
+                'demand_night',
+                'snowdepth_bool',
+                'precip_bool',
+                'increase_stock']]
+
+N = df_modified.shape[0]
+n = round(0.7*N)
+trainI = np.random.choice(N,size=n,replace=False)
+trainIndex = df_modified.index.isin(trainI)
+train = df_modified.iloc[trainIndex]
+test = df_modified.iloc[~trainIndex]
+
+# Set up X,Y
+
+# Train data 
+X = train.iloc[:,0:-2]
+Y = train['increase_stock']
+
+# Test data
+X_test = test.iloc[:,0:-2]
+Y_test = test['increase_stock']
+
+model = skl_lm.LogisticRegression()
+
+# Scaling the data, otherwise
+scaler = pp.StandardScaler().fit(X)
+model.fit(scaler.transform(X),Y)
+y_hat = model.predict(scaler.transform(X_test))
+
+'''
+# oskalad data
+model.fit(X,Y)
+y_hat = model.predict(X_test)'''
+
+# Get confusion matrix
+diff = pd.crosstab(y_hat, Y_test)
+print(f'Confusion matrix: \n {diff}')
+
+# No. of TP,TN,FP,FN
+'''TP = diff.iloc[0,0]
+TN = diff.iloc[1,1]
+FP = diff.iloc[1,0]
+FN = diff.iloc[0,1]'''
+
+# Get metrics:
+print(skl_m.classification_report(Y_test, y_hat))
+   
+\end{lstlisting}
+
+
+
+\section*{Random forest code}
+\begin{lstlisting}[language = Python]
+
+    import pandas as pd
+import numpy as np
+import matplotlib
+import matplotlib.pyplot as plt
+from sklearn import tree
+from sklearn.ensemble import BaggingClassifier, RandomForestClassifier
+import graphviz
+from sklearn.model_selection import GridSearchCV, RandomizedSearchCV
+from sklearn.metrics import classification_report
+
+df = pd.read_csv('training_data_vt2025.csv')
+#df.info()
+
+# Modify the dataset, emphasizing different variables
+df.iloc[:,12]=df.iloc[:,12]**2
+df.iloc[:,13]=np.sqrt(df.iloc[:,13])
+df.iloc[:,11] = df.iloc[:,11]**2
+
+df['month_cos'] = np.cos(df.month*np.pi/12)
+df['month_sin'] = np.sin(df.month*np.pi/12)
+
+# time of day, replaed with low,medium and high demand, 
+# adding the new categories back in the end.
+def categorize_demand(hour):
+    if 20 <= hour or 7 >= hour:
+        return 'night'
+    elif 8 <= hour <= 14:
+        return 'day'
+    elif 15 <= hour <= 19:
+        return 'evening'
+
+df['demand_category'] = df['hour_of_day'].apply(categorize_demand)
+df_dummies = pd.get_dummies(df['demand_category'], prefix='demand', drop_first=False)
+df = pd.concat([df, df_dummies], axis=1)
+
+# converting to bools
+def if_zero(data):
+    if data == 0:
+        return True
+    else:
+        return False
+
+# temperature
+
+df['snowdepth_bool'] = df['snowdepth'].replace(0, False).astype(bool)
+df['precip_bool'] = df['precip'].replace(0, False).astype(bool)
+
+# Split into train and test:
+
+#df.iloc[:,15]=df.iloc[:,15].replace('low_bike_demand',False)
+#df.iloc[:,15]=df.iloc[:,15].replace('high_bike_demand',True)
+np.random.seed(0)
+
+df_modified=df[[#'holiday',
+                'weekday',
+                #'summertime',
+                'temp',
+                #'dew',
+                #'humidity',
+                'visibility',
+                'windspeed',
+                'month_cos',
+                'month_sin',
+                'demand_day',
+                'demand_evening',
+                'demand_night',
+                'snowdepth_bool',
+                'precip_bool',
+                'increase_stock']]
+
+N = df_modified.shape[0]
+n = round(0.7*N)
+trainI = np.random.choice(N,size=n,replace=False)
+trainIndex = df_modified.index.isin(trainI)
+train = df_modified.iloc[trainIndex]
+test = df_modified.iloc[~trainIndex]
+
+X_train = train.drop(columns=['increase_stock'])
+# Need to transform the qualitative variables to dummy variables 
+
+y_train = train['increase_stock']
+
+model = RandomForestClassifier(random_state=42)
+param_grid = {
+    'n_estimators': [100, 200, 300], 
+    'max_depth': [10, 20, None],     
+    'min_samples_split': [2, 5, 10], 
+    'min_samples_leaf': [1, 2, 4]     
+}
+
+# Set up Grid Search
+random_search = RandomizedSearchCV(model, param_grid, cv=5, scoring='accuracy', n_jobs=-1, verbose=2)
+
+# Fit on training data
+random_search.fit(X_train, y_train)
+
+# Get the best hyperparameters
+print("Best Parameters: ", random_search.best_params_)
+print("Best Accuracy: %.2f" % random_search.best_score_)
+
+# Update the model with the best parameters
+best_model = random_search.best_estimator_
+
+# Fit the best model on the training data
+best_model.fit(X_train, y_train)
+
+# Make predictions using the optimized model
+
+
+
+
+###
+#dot_data = tree.export_graphviz(model, out_file=None, feature_names = X_train.columns,class_names = model.classes_, 
+#                                filled=True, rounded=True,leaves_parallel=True, proportion=True)
+#graph = graphviz.Source(dot_data)
+#graph.render("decision_tree", format="pdf")
+X_test = test.drop(columns=['increase_stock'])
+y_test = test['increase_stock']
+y_predict = best_model.predict(X_test)
+
+
+
+print(classification_report(y_test, y_predict))
+\end{lstlisting}
+
+
+
+\section*{k-NN code}
+\begin{lstlisting}[language = Python]
+
+    import numpy as np
+import pandas as pd
+import matplotlib.pyplot as plt
+import sklearn.linear_model as skl_lm
+import sklearn.preprocessing as pp
+import sklearn.metrics as skl_m
+
+import sklearn.neighbors as skl_nb
+
+df = pd.read_csv('training_data_vt2025.csv')
+#df.info()
+
+# Modify the dataset, emphasizing different variables
+#df.iloc[:,12]=df.iloc[:,12]**2
+#df.iloc[:,13]=np.sqrt(df.iloc[:,13])
+#df.iloc[:,11] = df.iloc[:,11]**2
+
+df['month_cos'] = np.cos(df.month*np.pi/12)
+df['month_sin'] = np.sin(df.month*np.pi/12)
+
+# time of day, replaed with low,medium and high demand, 
+# adding the new categories back in the end.
+def categorize_demand(hour):
+    if 20 <= hour or 7 >= hour:
+        return 'night'
+    elif 8 <= hour <= 14:
+        return 'day'
+    elif 15 <= hour <= 19:
+        return 'evening'
+
+df['demand_category'] = df['hour_of_day'].apply(categorize_demand)
+df_dummies = pd.get_dummies(df['demand_category'], prefix='demand', drop_first=False)
+df = pd.concat([df, df_dummies], axis=1)
+
+# converting to bools
+def if_zero(data):
+    if data == 0:
+        return True
+    else:
+        return False
+
+# temperature
+
+df['snowdepth_bool'] = df['snowdepth'].replace(0, False).astype(bool)
+df['precip_bool'] = df['precip'].replace(0, False).astype(bool)
+
+# Split into train and test:
+
+#df.iloc[:,15]=df.iloc[:,15].replace('low_bike_demand',False)
+#df.iloc[:,15]=df.iloc[:,15].replace('high_bike_demand',True)
+np.random.seed(0)
+
+df_modified=df[[#'holiday',
+                'weekday',
+                #'summertime',
+                'temp',
+                #'dew',
+                'humidity',
+                'visibility',
+                'windspeed',
+                'month_cos',
+                'month_sin',
+                'demand_day',
+                'demand_evening',
+                'demand_night',
+                'snowdepth_bool',
+                'precip_bool',
+                'increase_stock']]
+
+N = df_modified.shape[0]
+n = round(0.7*N)
+trainI = np.random.choice(N,size=n,replace=False)
+trainIndex = df_modified.index.isin(trainI)
+train = df_modified.iloc[trainIndex]
+test = df_modified.iloc[~trainIndex]
+
+# Set up X,Y
+
+# Train data 
+X = train.iloc[:,0:-2]
+Y = train['increase_stock']
+
+# Test data
+X_test = test.iloc[:,0:-2]
+Y_test = test['increase_stock']
+
+
+"""
+# Tests for k-value
+# TEST 1 - uniform distance
+missclassification = []
+for k in range(500): # Try n_neighbours = 1, 2, ....,
+
+    #kNN method
+    scaler = pp.StandardScaler().fit(X)
+    model = skl_nb.KNeighborsClassifier(n_neighbors = k+1, weights = 'uniform')
+    model.fit(scaler.transform(X),Y)
+
+    # Prediction
+    y_hat = model.predict(scaler.transform(X_test))
+    missclassification.append(np.mean(y_hat != Y_test))
+
+K = np.linspace(1, 500, 500)
+plt.plot(K, missclassification, '.')
+plt.ylabel('Missclassification')
+plt.xlabel('Number of neighbours')
+plt.show()
+
+#TEST 2
+missclassification = []
+for k in range(500): # Try n_neighbours = 1, 2, ....,
+
+    #kNN method
+    scaler = pp.StandardScaler().fit(X)
+    model = skl_nb.KNeighborsClassifier(n_neighbors = k+1, weights = 'distance')
+    model.fit(scaler.transform(X),Y)
+
+    # Prediction
+    y_hat = model.predict(scaler.transform(X_test))
+    missclassification.append(np.mean(y_hat != Y_test))
+
+K = np.linspace(1, 500, 500)
+plt.plot(K, missclassification, '.')
+plt.ylabel('Missclassification')
+plt.xlabel('Number of neighbours')
+plt.show()
+"""
+
+
+
+# creating the model
+model = skl_nb.KNeighborsClassifier(n_neighbors = 120, weights = 'distance')
+
+
+# Scaling the data, otherwise
+scaler = pp.StandardScaler().fit(X)
+model.fit(scaler.transform(X),Y)
+y_hat = model.predict(scaler.transform(X_test))
+
+
+
+'''
+# oskalad data
+model.fit(X,Y)
+y_hat = model.predict(X_test)'''
+
+# Get confusion matrix
+diff = pd.crosstab(y_hat, Y_test)
+print(f'Confusion matrix: \n {diff}')
+
+# No. of TP,TN,FP,FN
+'''TP = diff.iloc[0,0]
+TN = diff.iloc[1,1]
+FP = diff.iloc[1,0]
+FN = diff.iloc[0,1]'''
+
+# Get metrics:
+print(skl_m.classification_report(Y_test, y_hat))
+\end{lstlisting}
+
+
+
+
+\section*{QDA code}
+\begin{lstlisting}[language = Python]
+
+    import pandas as pd
+import numpy as np
+from sklearn.model_selection import train_test_split
+from sklearn.discriminant_analysis import QuadraticDiscriminantAnalysis
+from sklearn.metrics import accuracy_score
+from sklearn.metrics import classification_report
+
+df = pd.read_csv('training_data_vt2025.csv')
+
+# modify the month to represent the periodicity that is observed in data.
+df['month_cos'] = np.cos(df['month']*2*np.pi/12)
+df['month_sin'] = np.sin(df['month']*2*np.pi/12)
+
+# time of day, replaced with 3 bool values: is_night, is_day and is_evening, 
+# adding the new categories back in the end.
+def categorize_demand(hour):
+    if 20 <= hour or 7 >= hour:
+        return 'night'
+    elif 8 <= hour <= 14:
+        return 'day'
+    elif 15 <= hour <= 19:
+        return 'evening'
+
+df['time_of_day'] = df['hour_of_day'].apply(categorize_demand)
+df_dummies = pd.get_dummies(df['time_of_day'], prefix='is', drop_first=False)
+df = pd.concat([df, df_dummies], axis=1)
+
+# Create bool of snowdepth and percipitation
+df['snowdepth_bool'] = df['snowdepth'].where(df['snowdepth'] == 0, 1)
+df['precip_bool'] = df['precip'].where(df['precip'] == 0, 1)
+
+# Seperate training data from target
+X=df[[#'holiday',
+        'weekday',
+        #'summertime',
+        'temp',
+        #'dew',
+        #'humidity',
+        #'visibility',
+        #'windspeed',
+        #'month',
+        'month_cos',
+        'month_sin',
+        #'hour_of_day',
+        'is_day',
+        'is_evening',
+        'is_night',
+        #'snowdepth_bool',
+        'precip_bool'
+        ]]
+
+y=df['increase_stock']
+
+# Split dataset into training and test sets
+X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=42)
+
+# Apply Quadratic Discriminant Analysis (QDA)
+qda = QuadraticDiscriminantAnalysis() 
+X_train_lda = qda.fit(X_train, y_train)
+
+# Make predictions
+y_pred = qda.predict(X_test)
+
+# Evaluate accuracy
+accuracy = accuracy_score(y_test, y_pred)
+print(f"Model Accuracy: {accuracy:.2f}")
+
+print(classification_report(y_test, y_pred))
+\end{lstlisting}
+

@@ -26,6 +26,29 @@
 \usepackage{physics}
 \usepackage{enumerate}
 
+
+% koden
+\definecolor{codegreen}{rgb}{0,0.6,0}
+\definecolor{codegray}{rgb}{0.5,0.5,0.5}
+\definecolor{codepurple}{rgb}{0.58,0,0.82}
+\definecolor{backcolour}{rgb}{0.95,0.95,0.92}
+\usepackage{listings}
+\lstdefinestyle{mystyle}{
+backgroundcolor=\color{backcolour},
+commentstyle=\color{codegreen},
+keywordstyle=\color{magenta},
+numberstyle=\tiny\color{codegray},
+stringstyle=\color{codepurple},
+basicstyle=\footnotesize\ttfamily,
+breakatwhitespace=false,
+breaklines=true, captionpos=b,
+keepspaces=true, numbers=left,
+numbersep=5pt, showspaces=false,
+showstringspaces=false,
+showtabs=false, tabsize=2,
+}
+\lstset{style=mystyle}
+
 \definecolor{codegreen}{rgb}{0,0.6,0}
 \definecolor{codegray}{rgb}{0.5,0.5,0.5}
 \definecolor{codepurple}{rgb}{0.58,0,0.82}
@@ -67,6 +90,9 @@ Project in Statistical Machine Learning}
 \graphicspath{{./bilder/}}
 
 
+
+
+
 % -------------------- HÄR BÖRJAR DOKUMENTET -------------------
 \begin{document}
 
@@ -74,16 +100,16 @@ Project in Statistical Machine Learning}
 \maketitle
 
 \begin{abstract}
-  In this project we develop, and study different statistical machine learning models for predicting whether the number of available bikes at a given hour should be increased, a project by the District Department of Transportation in Washington D.C. The training data set consists of 1600 instances of hourly bike rentals, and a test set of 400 instances. The models for prediction we have used are: \emph{Logistic regression, Discriminant methods: LDA, QDA, $k$- Nearest Neighbour}, and \emph{Tree Based Methods}. We have found that THE MODEL gives best prediction, with accuracy ??????
+  In this project we develop, and study different statistical machine learning models for predicting whether the number of available bikes at a given hour should be increased, a project by the District Department of Transportation in Washington D.C. The training data set consists of 1600 instances of hourly bike rentals, and a test set of 400 instances. The models for prediction we have used are: \emph{Logistic regression, Discriminant methods: LDA, QDA, $k$- Nearest Neighbour}, and \emph{Tree Based Methods}. We have found that T$k$- Nearest Neighbour gives best prediction, with accuracy 92 \%.
 \end{abstract}
 
-\include{plan}
+%\include{plan}
 \include{introduction}
-\include{theory}
 \include{data_analysis}
+\include{theory}
 \include{conclusion}
 
-\bibliography{ref}
+\bibliography{ref.bib}
 \appendix
 \include{appendix}
 
