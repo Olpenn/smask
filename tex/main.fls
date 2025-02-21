@@ -370,6 +370,12 @@ INPUT /usr/local/texlive/2024/texmf-dist/fonts/tfm/adobe/times/ptmr8r.tfm
 INPUT ../quadratic_discriminant_analysis copy.py
 INPUT ../quadratic_discriminant_analysis copy.py
 INPUT ../quadratic_discriminant_analysis copy.py
+INPUT ../knn.py
+INPUT ../knn.py
+INPUT ../knn.py
+INPUT ../Tree.py
+INPUT ../Tree.py
+INPUT ../Tree.py
 INPUT main.aux
 INPUT ./appendix.aux
 INPUT ./appendix.aux
