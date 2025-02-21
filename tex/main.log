@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.21 (TeX Live 2020/W32TeX) (preloaded format=pdflatex 2020.11.16)  21 FEB 2025 12:29
+This is pdfTeX, Version 3.14159265-2.6-1.40.21 (TeX Live 2020/W32TeX) (preloaded format=pdflatex 2020.11.16)  21 FEB 2025 12:34
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -566,104 +566,105 @@ Underfull \vbox (badness 10000) has occurred while \output is active []
  [1
 
 
-{c:/texlive/2020/texmf-var/fonts/map/pdftex/updmap/pdftex.map}] (c:/Users/Olle/Python/github/smask/tex/plan.tex
-LaTeX Font Info:    Trying to load font information for TS1+ptm on input line 8.
- (c:/texlive/2020/texmf-dist/tex/latex/psnfss/ts1ptm.fd
-File: ts1ptm.fd 2001/06/04 font definitions for TS1/ptm.
-)) (c:/Users/Olle/Python/github/smask/tex/introduction.tex) (c:/Users/Olle/Python/github/smask/tex/theory.tex [2]
+{c:/texlive/2020/texmf-var/fonts/map/pdftex/updmap/pdftex.map}] (c:/Users/Olle/Python/github/smask/tex/introduction.tex) (c:/Users/Olle/Python/github/smask/tex/theory.tex
 
-LaTeX Warning: Reference `(' on page 3 undefined on input line 23.
+LaTeX Warning: Reference `(' on page 2 undefined on input line 23.
 
-[3]
-<NYkNNtest1.png, id=113, 462.528pt x 346.896pt>
+[2]
+<NYkNNtest1.png, id=78, 462.528pt x 346.896pt>
 File: NYkNNtest1.png Graphic file (type png)
 <use NYkNNtest1.png>
 Package pdftex.def Info: NYkNNtest1.png  used on input line 66.
 (pdftex.def)             Requested size: 178.86702pt x 134.15085pt.
-<NYkNNtest2.png, id=115, 462.528pt x 346.896pt>
+<NYkNNtest2.png, id=80, 462.528pt x 346.896pt>
 File: NYkNNtest2.png Graphic file (type png)
 <use NYkNNtest2.png>
 Package pdftex.def Info: NYkNNtest2.png  used on input line 73.
 (pdftex.def)             Requested size: 178.86702pt x 134.15085pt.
- [4 <c:/Users/Olle/Python/github/smask/tex/NYkNNtest1.png> <c:/Users/Olle/Python/github/smask/tex/NYkNNtest2.png>]
+ [3 <c:/Users/Olle/Python/github/smask/tex/NYkNNtest1.png> <c:/Users/Olle/Python/github/smask/tex/NYkNNtest2.png>]
 Underfull \hbox (badness 10000) in paragraph at lines 115--124
 
  []
 
-) (c:/Users/Olle/Python/github/smask/tex/data_analysis.tex
-<./bilder//demand_day.pdf, id=125, 638.3317pt x 633.49484pt>
+LaTeX Font Info:    Trying to load font information for TS1+ptm on input line 148.
+(c:/texlive/2020/texmf-dist/tex/latex/psnfss/ts1ptm.fd
+File: ts1ptm.fd 2001/06/04 font definitions for TS1/ptm.
+)) (c:/Users/Olle/Python/github/smask/tex/data_analysis.tex [4]
+<./bilder//demand_day.pdf, id=98, 638.3317pt x 633.49484pt>
 File: ./bilder//demand_day.pdf Graphic file (type pdf)
 <use ./bilder//demand_day.pdf>
 Package pdftex.def Info: ./bilder//demand_day.pdf  used on input line 12.
 (pdftex.def)             Requested size: 178.86702pt x 177.503pt.
-<./bilder//demand_month.pdf, id=126, 615.84143pt x 641.27391pt>
+<./bilder//demand_month.pdf, id=99, 615.84143pt x 641.27391pt>
 File: ./bilder//demand_month.pdf Graphic file (type pdf)
 <use ./bilder//demand_month.pdf>
 Package pdftex.def Info: ./bilder//demand_month.pdf  used on input line 19.
 (pdftex.def)             Requested size: 178.86702pt x 186.24843pt.
-<./bilder//demand_hour.pdf, id=127, 610.02281pt x 230.51872pt>
+<./bilder//demand_hour.pdf, id=100, 610.02281pt x 230.51872pt>
 File: ./bilder//demand_hour.pdf Graphic file (type pdf)
 <use ./bilder//demand_hour.pdf>
 Package pdftex.def Info: ./bilder//demand_hour.pdf  used on input line 26.
 (pdftex.def)             Requested size: 317.9892pt x 120.16588pt.
-<./bilder//demand_cloudcover.pdf, id=128, 635.80664pt x 740.08055pt>
+<./bilder//demand_cloudcover.pdf, id=101, 635.80664pt x 740.08055pt>
 File: ./bilder//demand_cloudcover.pdf Graphic file (type pdf)
 <use ./bilder//demand_cloudcover.pdf>
 Package pdftex.def Info: ./bilder//demand_cloudcover.pdf  used on input line 39.
 (pdftex.def)             Requested size: 119.2467pt x 138.79863pt.
-<./bilder//demand_snowdepth.pdf, id=129, 647.30272pt x 751.57661pt>
+<./bilder//demand_snowdepth.pdf, id=102, 647.30272pt x 751.57661pt>
 File: ./bilder//demand_snowdepth.pdf Graphic file (type pdf)
 <use ./bilder//demand_snowdepth.pdf>
 Package pdftex.def Info: ./bilder//demand_snowdepth.pdf  used on input line 46.
 (pdftex.def)             Requested size: 119.2467pt x 138.45462pt.
-<./bilder//demand_precip.pdf, id=130, 647.30272pt x 768.04439pt>
+<./bilder//demand_precip.pdf, id=103, 647.30272pt x 768.04439pt>
 File: ./bilder//demand_precip.pdf Graphic file (type pdf)
 <use ./bilder//demand_precip.pdf>
 Package pdftex.def Info: ./bilder//demand_precip.pdf  used on input line 53.
 (pdftex.def)             Requested size: 119.2467pt x 141.4883pt.
-<./bilder//demand_dew.pdf, id=131, 635.80664pt x 745.05225pt>
+<./bilder//demand_dew.pdf, id=104, 635.80664pt x 745.05225pt>
 File: ./bilder//demand_dew.pdf Graphic file (type pdf)
 <use ./bilder//demand_dew.pdf>
 Package pdftex.def Info: ./bilder//demand_dew.pdf  used on input line 60.
 (pdftex.def)             Requested size: 119.2467pt x 139.73105pt.
-<./bilder//demand_temp.pdf, id=132, 624.31056pt x 745.05225pt>
+<./bilder//demand_temp.pdf, id=105, 624.31056pt x 745.05225pt>
 File: ./bilder//demand_temp.pdf Graphic file (type pdf)
 <use ./bilder//demand_temp.pdf>
 Package pdftex.def Info: ./bilder//demand_temp.pdf  used on input line 67.
 (pdftex.def)             Requested size: 119.2467pt x 142.30035pt.
-<./bilder//demand_humidity.pdf, id=133, 624.31056pt x 768.04439pt>
+<./bilder//demand_humidity.pdf, id=106, 624.31056pt x 768.04439pt>
 File: ./bilder//demand_humidity.pdf Graphic file (type pdf)
 <use ./bilder//demand_humidity.pdf>
 Package pdftex.def Info: ./bilder//demand_humidity.pdf  used on input line 74.
 (pdftex.def)             Requested size: 119.2467pt x 146.69171pt.
- [5]) (c:/Users/Olle/Python/github/smask/tex/result.tex) (c:/Users/Olle/Python/github/smask/tex/conclusion.tex [6 <c:/Users/Olle/Python/github/smask/tex/./bilder//demand_day.pdf> <c:/Users/Olle/Python/github/smask/tex/./bilder//demand_month.pdf> <c:/Users/Olle/Python/github/smask/tex/./bilder//demand_hour.pdf>])
-Underfull \hbox (badness 10000) in paragraph at lines 3--94
+) (c:/Users/Olle/Python/github/smask/tex/result.tex
+Underfull \vbox (badness 4060) has occurred while \output is active []
+
+ [5 <c:/Users/Olle/Python/github/smask/tex/./bilder//demand_day.pdf> <c:/Users/Olle/Python/github/smask/tex/./bilder//demand_month.pdf> <c:/Users/Olle/Python/github/smask/tex/./bilder//demand_hour.pdf>]) (c:/Users/Olle/Python/github/smask/tex/conclusion.tex [6 <c:/Users/Olle/Python/github/smask/tex/./bilder//demand_cloudcover.pdf> <c:/Users/Olle/Python/github/smask/tex/./bilder//demand_snowdepth.pdf> <c:/Users/Olle/Python/github/smask/tex/./bilder//demand_precip.pdf> <c:/Users/Olle/Python/github/smask/tex/./bilder//demand_dew.pdf> <c:/Users/Olle/Python/github/smask/tex/./bilder//demand_temp.pdf> <c:/Users/Olle/Python/github/smask/tex/./bilder//demand_humidity.pdf>])
+Underfull \hbox (badness 10000) in paragraph at lines 3--93
 
  []
 
-[7 <c:/Users/Olle/Python/github/smask/tex/./bilder//demand_cloudcover.pdf> <c:/Users/Olle/Python/github/smask/tex/./bilder//demand_snowdepth.pdf> <c:/Users/Olle/Python/github/smask/tex/./bilder//demand_precip.pdf> <c:/Users/Olle/Python/github/smask/tex/./bilder//demand_dew.pdf> <c:/Users/Olle/Python/github/smask/tex/./bilder//demand_temp.pdf> <c:/Users/Olle/Python/github/smask/tex/./bilder//demand_humidity.pdf>]
 No file main.bbl.
-[8]
+[7]
 \openout2 = `appendix.aux'.
 
  (c:/Users/Olle/Python/github/smask/tex/appendix.tex (c:/texlive/2020/texmf-dist/tex/latex/listings/lstlang1.sty
 File: lstlang1.sty 2020/03/24 1.8d listings language file
 )
 Package hyperref Info: bookmark level for unknown lstlisting defaults to 0 on input line 3.
- (c:/Users/Olle/Python/github/smask/tex/../linear_discriminant_analysis.py [9
+ (c:/Users/Olle/Python/github/smask/tex/../linear_discriminant_analysis.py [8
 
-]) (c:/Users/Olle/Python/github/smask/tex/../quadratic_discriminant_analysis.py [10]) (c:/Users/Olle/Python/github/smask/tex/../Tree.py [11]
+]) (c:/Users/Olle/Python/github/smask/tex/../quadratic_discriminant_analysis.py [9]) (c:/Users/Olle/Python/github/smask/tex/../Tree.py [10]
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
- [12]) (c:/Users/Olle/Python/github/smask/tex/../knn.py [13]
+ [11]) (c:/Users/Olle/Python/github/smask/tex/../knn.py [12]
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
- [14]) [15] (c:/Users/Olle/Python/github/smask/tex/../regression.py
+ [13]) [14] (c:/Users/Olle/Python/github/smask/tex/../regression.py
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
- [16])) [17] (c:/Users/Olle/Python/github/smask/tex/main.aux (c:/Users/Olle/Python/github/smask/tex/appendix.aux))
+ [15])) [16] (c:/Users/Olle/Python/github/smask/tex/main.aux (c:/Users/Olle/Python/github/smask/tex/appendix.aux))
 Package rerunfilecheck Info: File `main.out' has not changed.
-(rerunfilecheck)             Checksum: 8F6FC1DE0013BA320B9677B6BFF8A36E;1128.
+(rerunfilecheck)             Checksum: 5014A8A5D1248E5FEC8F9903A27140CA;788.
 
 
 LaTeX Warning: There were undefined references.
@@ -673,18 +674,18 @@ LaTeX Warning: There were multiply-defined labels.
 
  ) 
 Here is how much of TeX's memory you used:
- 14601 strings out of 479485
- 219394 string characters out of 5875915
- 1145544 words of memory out of 5000000
- 30587 multiletter control sequences out of 15000+600000
+ 14579 strings out of 479485
+ 219091 string characters out of 5875915
+ 1145487 words of memory out of 5000000
+ 30581 multiletter control sequences out of 15000+600000
  581077 words of font info for 164 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  80i,10n,86p,1702b,2114s stack positions out of 5000i,500n,10000p,200000b,80000s
 {c:/texlive/2020/texmf-dist/fonts/enc/dvips/cm-super/cm-super-t1.enc}{c:/texlive/2020/texmf-dist/fonts/enc/dvips/base/8r.enc}<c:/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb><c:/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb><c:/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb><c:/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi5.pfb><c:/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi7.pfb><c:/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi9.pfb><c:/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb><c:/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb><c:/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb><c:/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy6.pfb><c:/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb><c:/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb><c:/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm7.pfb><c:/texlive/2020/texmf-dist/fonts/type1/public/cm-super/sftt0900.pfb><c:/texlive/2020/texmf-dist/fonts/type1/public/cm-super/sftt1000.pfb><c:/texlive/2020/texmf-dist/fonts/type1/urw/helvetic/uhvr8a.pfb><c:/texlive/2020/texmf-dist/fonts/type1/urw/times/utmb8a.pfb><c:/texlive/2020/texmf-dist/fonts/type1/urw/times/utmr8a.pfb><c:/texlive/2020/texmf-dist/fonts/type1/urw/times/utmri8a.pfb>
-Output written on c:/Users/Olle/Python/github/smask/tex/main.pdf (17 pages, 424594 bytes).
+Output written on c:/Users/Olle/Python/github/smask/tex/main.pdf (16 pages, 420154 bytes).
 PDF statistics:
- 1277 PDF objects out of 1440 (max. 8388607)
- 911 compressed objects within 10 object streams
- 589 named destinations out of 1000 (max. 500000)
- 26304 words of extra memory for PDF output out of 29859 (max. 10000000)
+ 1241 PDF objects out of 1440 (max. 8388607)
+ 877 compressed objects within 9 object streams
+ 576 named destinations out of 1000 (max. 500000)
+ 26264 words of extra memory for PDF output out of 29859 (max. 10000000)
 
