@@ -134,6 +134,13 @@ the covariance matrix is calculated for each class as follows:
     \mathbf{\Sigma}_m = \frac{1}{n_m - 1} \sum_{i:y_i=m} 
     (\mathbf{x}_i-\mathbf{\mu}_m)(\mathbf{x}_i-\mathbf{\mu}_m)^T
 \end{equation*}
+\\
+\\
+To optimize LDA and QDA, it's all about estimating $\mathbf{\Sigma}_m$ and $\mathbf{\mu_m}$ for all classes m. 
+The mean $\mathbf{\mu}$ is estiamted as the mean of all the input data $\mathbf{\mu} = \frac{1}{n_m}\sum_{i=1}^{n_m} \mathbf{x}_i$.
+The covariance matrix $\mathbf{\Sigma}_m$ is defined previously in the section. 
+\\
+\\
 One thing to note about LDA and QDA is that the use of a multi-variable gaussian distribution benefints normally distributed
 variables. In this project however, there is a dependance on positive definite values which are not normally distributed
 by nature. This is an issue when using QDA since in the class of $\textit{high\_bike\_demand}$, all data points have a 

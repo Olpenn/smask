@@ -2,10 +2,13 @@
 \providecommand\hyper@newdestlabel[2]{}
 \providecommand\HyperFirstAtBeginDocument{\AtBeginDocument}
 \HyperFirstAtBeginDocument{\ifx\hyper@anchor\@undefined
+\global\let\oldcontentsline\contentsline
+\gdef\contentsline#1#2#3#4{\oldcontentsline{#1}{#2}{#3}}
 \global\let\oldnewlabel\newlabel
 \gdef\newlabel#1#2{\newlabelxx{#1}#2}
 \gdef\newlabelxx#1#2#3#4#5#6{\oldnewlabel{#1}{{#2}{#3}}}
 \AtEndDocument{\ifx\hyper@anchor\@undefined
+\let\contentsline\oldcontentsline
 \let\newlabel\oldnewlabel
 \fi}
 \fi}
@@ -29,34 +32,34 @@
 \newlabel{sub@fig:kNN_fig2}{{b}{4}{Weighted distance test for $k$.\relax }{figure.caption.2}{}}
 \@writefile{lof}{\contentsline {figure}{\numberline {1}{\ignorespaces Test for choosing an optimal $k$--value.\relax }}{4}{figure.caption.2}\protected@file@percent }
 \newlabel{fig:kNN_comparison}{{1}{4}{Test for choosing an optimal $k$--value.\relax }{figure.caption.2}{}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {2.2}Input Data Modification}{4}{subsection.2.2}\protected@file@percent }
-\newlabel{sec:input data modification}{{2.2}{4}{Input Data Modification}{subsection.2.2}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {2.2}Input Data Modification}{5}{subsection.2.2}\protected@file@percent }
+\newlabel{sec:input data modification}{{2.2}{5}{Input Data Modification}{subsection.2.2}{}}
 \@writefile{toc}{\contentsline {section}{\numberline {3}Data Analysis}{5}{section.3}\protected@file@percent }
-\newlabel{fig:demand day}{{2a}{5}{Demand per day of week.\relax }{figure.caption.3}{}}
-\newlabel{sub@fig:demand day}{{a}{5}{Demand per day of week.\relax }{figure.caption.3}{}}
-\newlabel{fig:demand month}{{2b}{5}{Demand per month.\relax }{figure.caption.3}{}}
-\newlabel{sub@fig:demand month}{{b}{5}{Demand per month.\relax }{figure.caption.3}{}}
-\newlabel{fig:demand hour}{{2c}{5}{Demand per hour of day.\relax }{figure.caption.3}{}}
-\newlabel{sub@fig:demand hour}{{c}{5}{Demand per hour of day.\relax }{figure.caption.3}{}}
-\@writefile{lof}{\contentsline {figure}{\numberline {2}{\ignorespaces Bike demand vs. day of week and month.\relax }}{5}{figure.caption.3}\protected@file@percent }
-\newlabel{fig:demand day month}{{2}{5}{Bike demand vs. day of week and month.\relax }{figure.caption.3}{}}
-\newlabel{fig:demand cloudcover}{{3a}{6}{Demand per cloudcover (percentage).\relax }{figure.caption.4}{}}
-\newlabel{sub@fig:demand cloudcover}{{a}{6}{Demand per cloudcover (percentage).\relax }{figure.caption.4}{}}
-\newlabel{fig:demand snowdepth}{{3b}{6}{Demand per snowdepth (mm).\relax }{figure.caption.4}{}}
-\newlabel{sub@fig:demand snowdepth}{{b}{6}{Demand per snowdepth (mm).\relax }{figure.caption.4}{}}
-\newlabel{fig:demand precip}{{3c}{6}{Demand per precipitation (mm/hour).\relax }{figure.caption.4}{}}
-\newlabel{sub@fig:demand precip}{{c}{6}{Demand per precipitation (mm/hour).\relax }{figure.caption.4}{}}
-\newlabel{fig:demand dew}{{3d}{6}{Demand per dew point ($^\circ $C).\relax }{figure.caption.4}{}}
-\newlabel{sub@fig:demand dew}{{d}{6}{Demand per dew point ($^\circ $C).\relax }{figure.caption.4}{}}
-\newlabel{fig:demand temp}{{3e}{6}{Demand per temperature ($^\circ $).\relax }{figure.caption.4}{}}
-\newlabel{sub@fig:demand temp}{{e}{6}{Demand per temperature ($^\circ $).\relax }{figure.caption.4}{}}
-\newlabel{fig:demand humidity}{{3f}{6}{Demand per humidity level (percentage).\relax }{figure.caption.4}{}}
-\newlabel{sub@fig:demand humidity}{{f}{6}{Demand per humidity level (percentage).\relax }{figure.caption.4}{}}
-\@writefile{lof}{\contentsline {figure}{\numberline {3}{\ignorespaces Bike demand vs. various weather parameters.\relax }}{6}{figure.caption.4}\protected@file@percent }
-\newlabel{fig:demand weather}{{3}{6}{Bike demand vs. various weather parameters.\relax }{figure.caption.4}{}}
-\@writefile{toc}{\contentsline {section}{\numberline {4}Result}{6}{section.4}\protected@file@percent }
+\@writefile{toc}{\contentsline {section}{\numberline {4}Result}{5}{section.4}\protected@file@percent }
 \bibdata{ref}
+\newlabel{fig:demand day}{{2a}{6}{Demand per day of week.\relax }{figure.caption.3}{}}
+\newlabel{sub@fig:demand day}{{a}{6}{Demand per day of week.\relax }{figure.caption.3}{}}
+\newlabel{fig:demand month}{{2b}{6}{Demand per month.\relax }{figure.caption.3}{}}
+\newlabel{sub@fig:demand month}{{b}{6}{Demand per month.\relax }{figure.caption.3}{}}
+\newlabel{fig:demand hour}{{2c}{6}{Demand per hour of day.\relax }{figure.caption.3}{}}
+\newlabel{sub@fig:demand hour}{{c}{6}{Demand per hour of day.\relax }{figure.caption.3}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {2}{\ignorespaces Bike demand vs. day of week and month.\relax }}{6}{figure.caption.3}\protected@file@percent }
+\newlabel{fig:demand day month}{{2}{6}{Bike demand vs. day of week and month.\relax }{figure.caption.3}{}}
+\@writefile{toc}{\contentsline {section}{\numberline {5}Conclusion}{6}{section.5}\protected@file@percent }
 \bibcite{lindholm2022machine}{{1}{2022}{{Lindholm et~al.}}{{Lindholm, Wahlstr{\"o}m, Lindsten, and Sch{\"o}n}}}
-\@writefile{toc}{\contentsline {section}{\numberline {5}Conclusion}{7}{section.5}\protected@file@percent }
+\newlabel{fig:demand cloudcover}{{3a}{7}{Demand per cloudcover (percentage).\relax }{figure.caption.4}{}}
+\newlabel{sub@fig:demand cloudcover}{{a}{7}{Demand per cloudcover (percentage).\relax }{figure.caption.4}{}}
+\newlabel{fig:demand snowdepth}{{3b}{7}{Demand per snowdepth (mm).\relax }{figure.caption.4}{}}
+\newlabel{sub@fig:demand snowdepth}{{b}{7}{Demand per snowdepth (mm).\relax }{figure.caption.4}{}}
+\newlabel{fig:demand precip}{{3c}{7}{Demand per precipitation (mm/hour).\relax }{figure.caption.4}{}}
+\newlabel{sub@fig:demand precip}{{c}{7}{Demand per precipitation (mm/hour).\relax }{figure.caption.4}{}}
+\newlabel{fig:demand dew}{{3d}{7}{Demand per dew point ($^\circ $C).\relax }{figure.caption.4}{}}
+\newlabel{sub@fig:demand dew}{{d}{7}{Demand per dew point ($^\circ $C).\relax }{figure.caption.4}{}}
+\newlabel{fig:demand temp}{{3e}{7}{Demand per temperature ($^\circ $).\relax }{figure.caption.4}{}}
+\newlabel{sub@fig:demand temp}{{e}{7}{Demand per temperature ($^\circ $).\relax }{figure.caption.4}{}}
+\newlabel{fig:demand humidity}{{3f}{7}{Demand per humidity level (percentage).\relax }{figure.caption.4}{}}
+\newlabel{sub@fig:demand humidity}{{f}{7}{Demand per humidity level (percentage).\relax }{figure.caption.4}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {3}{\ignorespaces Bike demand vs. various weather parameters.\relax }}{7}{figure.caption.4}\protected@file@percent }
+\newlabel{fig:demand weather}{{3}{7}{Bike demand vs. various weather parameters.\relax }{figure.caption.4}{}}
 \@input{appendix.aux}
 \gdef \@abspage@last{16}

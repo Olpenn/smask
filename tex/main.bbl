@@ -5,7 +5,8 @@
   \providecommand{\doi}[1]{doi: #1}\else
   \providecommand{\doi}{doi: \begingroup \urlstyle{rm}\Url}\fi
 
-\bibitem[Lindholm et~al.(2022)Lindholm, Wahlstr{\"o}m, Lindsten, and Sch{\"o}n]{lindholm2022machine}
+\bibitem[Lindholm et~al.(2022)Lindholm, Wahlstr{\"o}m, Lindsten, and
+  Sch{\"o}n]{lindholm2022machine}
 A.~Lindholm, N.~Wahlstr{\"o}m, F.~Lindsten, and T.~B. Sch{\"o}n.
 \newblock \emph{Machine learning: a first course for engineers and scientists}.
 \newblock Cambridge University Press, 2022.
