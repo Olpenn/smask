@@ -4,7 +4,9 @@ import matplotlib.pyplot as plt
 import sklearn.linear_model as skl_lm
 import sklearn.preprocessing as pp
 import sklearn.metrics as skl_m
+from preprocessing import get_data
 
+"""
 df = pd.read_csv('training_data_vt2025.csv')
 #df.info()
 
@@ -73,6 +75,9 @@ Y = train['increase_stock']
 # Test data
 X_test = test.iloc[:,0:-2]
 Y_test = test['increase_stock']
+"""
+
+X, Y, X_test, Y_test = get_data()
 
 model = skl_lm.LogisticRegression()
 
