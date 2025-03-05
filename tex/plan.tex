@@ -1,49 +1,50 @@
-\section{Plan}
-\subsection{From Intro}
 
-\begin{enumerate}[(i)]
-    \item Explotre and preprocess data
-    \item try some or all classification methods, which are these?
-    \begin{itemize}
-        \item Logistic Regression
-        \item Discriminant analysis: LDA, QDA
-        \item K-nearest neighbor
-        \item Tree-based methods: classification trees, random forests, bagging
-        \item Boositing
-    \end{itemize} 
-    \item Which of these are to be "put in producion"?
-\end{enumerate}
+% \section{Plan}
+% \subsection{From Intro}
 
-\subsection{From Data analysis task}
-\begin{itemize}
-    \item Can any trend be seen comparing different hours, weeks, months?
-    \item Is there any diffrence between weekdays and holidays?
-    \item Is there any trend depending on the weather?
-\end{itemize}
+% \begin{enumerate}[(i)]
+%     \item Explotre and preprocess data
+%     \item try some or all classification methods, which are these?
+%     \begin{itemize}
+%         \item Logistic Regression
+%         \item Discriminant analysis: LDA, QDA
+%         \item K-nearest neighbor
+%         \item Tree-based methods: classification trees, random forests, bagging
+%         \item Boositing
+%     \end{itemize} 
+%     \item Which of these are to be "put in producion"?
+% \end{enumerate}
 
-\subsection{From Implementation of methods}
+% \subsection{From Data analysis task}
+% \begin{itemize}
+%     \item Can any trend be seen comparing different hours, weeks, months?
+%     \item Is there any diffrence between weekdays and holidays?
+%     \item Is there any trend depending on the weather?
+% \end{itemize}
 
-Each group member should implement one family each, who did what shall be clear!
+% \subsection{From Implementation of methods}
 
-DNNs are encouraged to be implemented, do this if there is time. 
-(DNN is not a thing a group member can claim as their family.)
+% Each group member should implement one family each, who did what shall be clear!
 
-Implement a naive version, let's do: $\textit{Always low\_bike\_demand}$
-\subsubsection{What to do with each method}
-\begin{enumerate}
-    \item Implement the method (each person individually)
-    \item Tune hyper-parameters, discuss how this is done (each person individually)
-    \item Evaluate with for example cross-validation. Don't use $E_{k-fold}$ (what is that?) (need to do together)
-    \item (optional) Think about input features, are all relevant? (together)
-\end{enumerate}
+% DNNs are encouraged to be implemented, do this if there is time. 
+% (DNN is not a thing a group member can claim as their family.)
 
-Before training, unify pre-processing FOR ALL METHODS and choose ONE OR MULTIPLE metrics to evaluate the model.
-(is it neccesary to have the same for all?, is it beneficial?) Examples:
-\begin{itemize}
-    \item accuracy
-    \item f1-score
-    \item recall
-    \item precision
-\end{itemize}
+% Implement a naive version, let's do: $\textit{Always low\_bike\_demand}$
+% \subsubsection{What to do with each method}
+% \begin{enumerate}
+%     \item Implement the method (each person individually)
+%     \item Tune hyper-parameters, discuss how this is done (each person individually)
+%     \item Evaluate with for example cross-validation. Don't use $E_{k-fold}$ (what is that?) (need to do together)
+%     \item (optional) Think about input features, are all relevant? (together)
+% \end{enumerate}
 
-Use same test-train split for ALL MODELS
+% Before training, unify pre-processing FOR ALL METHODS and choose ONE OR MULTIPLE metrics to evaluate the model.
+% (is it neccesary to have the same for all?, is it beneficial?) Examples:
+% \begin{itemize}
+%     \item accuracy
+%     \item f1-score
+%     \item recall
+%     \item precision
+% \end{itemize}
+
+% Use same test-train split for ALL MODELS

@@ -80,12 +80,12 @@ X_train = train.drop(columns=['increase_stock'])
 
 y_train = train['increase_stock']
 
-model = RandomForestClassifier()
+model = RandomForestClassifier(random_state=42)
 param_grid = {
-    'n_estimators': [50, 100, 200, 500, 10000],  # Number of trees
-    'max_depth': [5, 10, 20, 30, None],       # Tree depth (None means unlimited)
-    'min_samples_split': [1,2,3,4,5,6],          # Minimum samples required to split a node
-    'min_samples_leaf': [1, 2, 3, 4, 5],        # Minimum samples required at each leaf node
+    'n_estimators': [100, 200, 300], 
+    'max_depth': [10, 20, None],     
+    'min_samples_split': [2, 5, 10], 
+    'min_samples_leaf': [1, 2, 4]     
 }
 
 # Set up Grid Search

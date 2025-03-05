@@ -1,26 +1,36 @@
+
 \section{Theoretical Background}
 
+Here we review the theoretical background of the models. We follow mostly \cite{lindholm2022machine}.
+
+Let $\{ \boldsymbol{x}_i, y_i \}_{n \in \mathbb{N}}$ be the training data set, where $\boldsymbol{x_i}$ is a matrix representing the input, and $y_i$ is the  output.
 
 \subsection{Mathematical Overview of the Models}
-\subsubsection{Logistic Regression}
-The backbone of logistic regression is linear regression, i.e. finding the least-squares solution to an equation system \begin{equation}
-    X\theta = y
-\end{equation}
-given by the normal equations \begin{equation}
-    X^TX \theta = X^Ty
-\end{equation}
-where $X$ is the training data matrix, $\theta$ is the coefficient vector and $b$ is the training output. The parameter vector is then used in the sigmoid function: \begin{align}
-    \sigma(z) &= \frac{e^{z}}{1+e^{z}}: \; \mathbb{R}\to [0,1],\\
-    z &= x^T \theta,
-\end{align}
-where $x$ is the testing input. This gives a statistical interpretation of the input vector. In the case of a binary True/False classification, the value of the sigmoid function then determines the class.
+
+    \subsubsection{Logistic Regression}
+    The backbone of logistic regression is linear regression, i.e. finding the least-squares solution to an equation system 
+    \begin{equation*}
+        X\theta = y
+    \end{equation*}
+    given by the normal equations 
+    \begin{equation*}
+        X^TX \theta = X^Ty
+    \end{equation*}
+    where $X$ is the training data matrix, $\theta$ is the coefficient vector and $b$ is the training output. The parameter vector is then used in the sigmoid function $\sigma(z): \mathbb{R}\to [0,1]$
+    \begin{equation*}
+        \sigma(z) = \frac{e^{z}}{1+e^{z}}:
+    \end{equation*}
+    where $  z = x^T \theta$, and $x$ is the testing input. This gives a statistical interpretation of the input vector. In the case of a binary True/False classification, the value of the sigmoid function then determines the class.
 
 \subsubsection{Random forest}
 
 The random forest method is a based upon decision trees, i.e. dividing the data point into binary groups based on Gini-impurity, entropy or classification error, Gini being the most common. 
 These divisions are then used to create a binary tree shown in figure \ref(Tree) and where thee leaf-nodes are used to classify the target variables bases on the input. 
-As of itself the dicition tree tends to have unsatisfying results which leads to methodes like random forest that boost its accuracy.
-
+As of itself the disition tree tends to have unsatisfying results which leads to methodes like random forest and sandbagging that boost its accuracy.
+Sandbagging is a way to sampel the data in order to get multiple datasets from the same data. One then creates a desition-tree for every subset data to then combine them into one model. 
+This lessens the variance of the model but increases bias. This means that sandbagging can increase false negatives which in theis aplication makes i nonviable. 
+Random forest on the otherhand is viable, it creates mutiple trees whilse disrecarding random input variable this randomnes decreases overfitting creating a more robust model.  
+    
     %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
     %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
     %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -28,46 +38,124 @@ As of itself the dicition tree tends to have unsatisfying results which leads to
     %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
     \subsubsection{Non-parametric method: k--Nearest Neighbour}
         \emph{$k$-- Nearest Neighbour}($k$--NN) is a distance based method that takes a $k$ amount of points from the training data set, called \emph{neighbours}, computes the distance between them, then assumes that the predicted value $\hat{y}(x_{*})$ follows the trend of the $k$-- nearest neighbours. Since $k$--NN uses the training data explicitly it is also called a \emph{nonparametric} method.
+
+    The $k$--NN method can be divided into several subcategories, inter alias \emph{classification} $k$--NN method, \emph{regression}  $k$--NN method. In this project, we are using the classification method, since we are trying to predict in which of the two classes low, or high demand, the given, and predicted data points belong.
+
+    The classification  $k$--NN algorithm evaluates $\hat{y}(x_{*})$ by computing the most frequently occurring class among the $k$ nearest neighbours. Here, we try to identify whether a data point belong to the high demand-class. Denote $c=$ high demand class. For simplicity, assume Euclidean ambiance. Then
+        \begin{equation*}
+            \hat{y}(x_*) = \arg \max_{c}  \sum_{n \in \mathbb{N}} \chi_{(y_i = c)} ,
+        \end{equation*}
+    where $y_i$ is the class of the nearest neighbour,  $\chi$ is the characteristic function 
+        \begin{equation*}
+            \chi_{(y_i = c)} = 
+            \begin{cases}
+                1 \qquad \text{if } y_n = c, \\
+                0 \qquad \text{otherwise}.
+                
+            \end{cases}
+        \end{equation*}
+    It is very common to use a weighted sum to predict the next value, i.e.
+        \begin{equation*}
+            \hat{y}(x_*) =  arg \max_{c}  \sum_{n \in \mathbb{N}} \frac{\chi_{(y_n = c)}}{d(x, x_n)},
+        \end{equation*}
+    where $d$ is the standard Euclidean metric, computing the distance between an input $x$, and a neighbour $x_n$. 
+
+    When using this model it is important to choose an optimal $k$--value. There are several tests for this, here we implement \emph{uniform weighting}, and \emph{distance weighting}. The first algorithm creates a $k$--NN model for each new $k \in [1, 500]$, and trains the model with uniform weights, i.e. the contribution of all neighbours is equal. Similarly, the latter trains a $k$--NN classifier for each $k \in [1, 500]$, with the difference that it uses distance based weighting, i.e. closer neighbours have greater influence. After testing different upper boundaries for $k$, the two models gave good results in the interval $[1,500]$, see Figure \ref{fig:kNN_comparison}. From the figures, we can see that the second test gives a better value for $k$, since the plot follows smoother trend, in comparison to the uniform weighting test, which makes it easier to identify an optimal $k$ value ($k = 120$). Moreover, the distance weighting algorithm is providing results for larger values of $k$, that is for $k \in [1, 400)$ before the curve converges, while the uniform weighting algorithm converges earlier, when $k = 120$. This means that for large $k$, both test algorithms make prediction based on the most common class in the data set, instead of making prediction based on the behaviour of the neighbours. Thus for sufficiently large $k$, for any given data point, the model will consider unnecessarily large amount of neighbours, and the prediction will be evaluated to belong to the most frequent class. Since the distance weighting has a larger range of $k$--value, it should be more trustworthy.
+
+    When $k = 120$, the accuracy of the model is 92\%.
     
-        The $k$--NN method can be divided into several subcategories, inter alias \emph{classification} $k$--NN method, \emph{regression}  $k$--NN method. In this project, we are using the classification method, since we are trying to predict in which of the two classes low, or high demand, the given, and predicted data points belong.
+    \begin{figure}[htbp]
+        \centering
+        \begin{subfigure}{0.45\textwidth}
+            \centering
+            \includegraphics[width=\textwidth]{NYkNNtest1.png}
+            \caption{Uniform distance test for $k$.}
+            \label{fig:kNN_fig1}
+        \end{subfigure}
+        \hfill
+        \begin{subfigure}{0.45\textwidth}
+            \centering
+            \includegraphics[width=\textwidth]{NYkNNtest2.png}
+            \caption{Weighted distance test for $k$.}
+            \label{fig:kNN_fig2}
+        \end{subfigure}
+        \caption{Test for choosing an optimal $k$--value.}
+        \label{fig:kNN_comparison}
+    \end{figure}
+
     
-        The classification  $k$--NN algorithm evaluates $\hat{y}(x_{*})$ by computing the most frequently occurring class among the $k$ nearest neighbours. Here, we try to identify whether a data point belong to the high demand-class. Denote $c=$ high demand class. For simplicity, assume Euclidean ambiance. Then
-            \begin{equation*}
-                \hat{y}(x_*) = \arg \max_{c}  \sum_{n \in \mathbb{N}} \chi_{(y_i = c)} ,
-            \end{equation*}
-        where $y_i$ is the class of the nearest neighbour,  $\chi$ is the characteristic function 
-            \begin{equation*}
-                \chi_{(y_i = c)} = 
-                \begin{cases}
-                    1 \qquad \text{if } y_n = c, \\
-                    0 \qquad \text{otherwise}.
-                    
-                \end{cases}
-            \end{equation*}
-        It is very common to use a weighted sum to predict the next value, i.e.
-            \begin{equation*}
-                \hat{y}(x_*) =  arg \max_{c}  \sum_{n \in \mathbb{N}} \frac{\chi_{(y_n = c)}}{d(x, x_n)},
-            \end{equation*}
-        where $d$ is the standard Euclidean metric, computing the distance between an input $x$, and a neighbour $x_n$. 
+
     
+\subsubsection{Discriminant analysis: LDA and QDA}
+
+Linear Discriminant Analysis is a generative model, which means it is a model that's creating and using a probaility 
+distribution $P(\mathbf{x}, y)$ to create an estimation for the probability $P(y=m|\mathbf{x})$ using bayes theorem.
+\\
+Bayes theorem is:
+\begin{equation*}
+    p(y|\mathbf{x}) = \frac{p(y,\mathbf{x})}{p(\mathbf{x})} = \frac{p(y)p(\mathbf{x}|y)}{\int_y p(y,\mathbf{x})}
+\end{equation*}
+For the discrete version it is obtained:
+\begin{equation*}
+    p(y=m|\mathbf{x}) = \frac{p(y=m)p(\mathbf{x}|y=m)}{\sum_{m=1}^{M} p(y=m) p(\mathbf{x}|y=m)}
+\end{equation*}
+For this form of the equation to be useful, it is neccesary to obtain an accurate estimation of $p(y=m)$ and $p(\mathbf{x}|y=m)$
+for all classes m. 
+\\
+In LDA, $p(y=m)$ is estimated by counting the percentage of data points (in the training data) being in each of the classes 
+and using that percentage as the probability of a data point being in that class. In mathematical terms:
+\begin{equation*}
+    p(y=m) = \frac{1}{n}\sum_{i=1}^{n}\mathbb{I}\{y_i=m\} = \frac{n_m}{n}
+\end{equation*}  
+To estimete the probability distribution $p(\mathbf{x}|y=m)$, a multi-dimensional gaussian distribution is used: 
+\begin{equation*}
+    \mathcal{N}(\mathbf{x}|\mathbf{\mu}, \mathbf{\Sigma}) = \frac{1}{(2 \pi)^{d/2} |\mathbf{\Sigma}|^{1/2}} 
+    exp \left( -\frac{1}{2}(\mathbf{x}-\mathbf{\mu})^T \mathbf{\Sigma}^{-1} (\mathbf{x}-\mathbf{\mu})\right)
+\end{equation*}
+Where $\mathbf{x}$ is the d-dimentional data point, $\mathbf{\mu}$ is the (d-dimentional) mean of the random variable.
+$\mathbf{\Sigma}$ is the symetric, positive definite covariance matrix defined by:
+\begin{equation*}
+    \mathbf{\Sigma} = \frac{1}{n-M}\sum_{m=1}^{M} \sum_{i:y_i=m} 
+    (\mathbf{x}_i-\mathbf{\mu}_m)(\mathbf{x}_i-\mathbf{\mu}_m)^T
+\end{equation*}
+Using these estimations results in an expression for the quantity $p(y=m|\mathbf{x}) \forall m$. LDA then uses maximum
+likelyhood to categorize an input $\mathbf{x}$ into a class $m$.
+\\
+\\
+Quadratic discriminant analysis (QDA) is heavily based of LDA with the sole difference being how the covariance matrix 
+$\mathbf{\Sigma}$ is created.
+In LDA, the covariance matrix is assumed to be the same for data in each and every class. In QDA however,
+the covariance matrix is calculated for each class as follows:
+\begin{equation*}
+    \mathbf{\Sigma}_m = \frac{1}{n_m - 1} \sum_{i:y_i=m} 
+    (\mathbf{x}_i-\mathbf{\mu}_m)(\mathbf{x}_i-\mathbf{\mu}_m)^T
+\end{equation*}
+One thing to note about LDA and QDA is that the use of a multi-variable gaussian distribution benefints normally distributed
+variables. In this project however, there is a dependance on positive definite values which are not normally distributed
+by nature. This is an issue when using QDA since in the class of $\textit{high\_bike\_demand}$, all data points have a 
+snow depth of 0 and has hence no variance. This results in this class having a undefined inverse for the covariance matrix.
+The solution used was to exclude this variable from this model. 
 
 
 
 
 
 
-
-
-\subsection{Input Data Modification}
-\label{sec:input data modification}
-By plotting the data and analyzing the .csv file, some observations were made. The different inputs were then changed accordingly:
-\begin{itemize}
-    \item \emph{Kept as-is}: \texttt{weekday}, \texttt{windspeed}, \texttt{visibility}, \texttt{temp}
-    \item \emph{Modified}:
+    %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    \subsection{Input Data Modification}
+    \label{sec:input data modification}
+    By plotting the data and analyzing the .csv file, some observations were made. The different inputs were then changed accordingly:
     \begin{itemize}
-        \item \texttt{month} - split into two inputs, one cosine and one sine part. This make the new inputs linear and can follow the fluctuations of the year. The original input was discarded.
-        \item \texttt{hour\_of\_day} - split into three boolean variables: \texttt{demand\_day}, \texttt{demand\_evening}, and \texttt{demand\_night}, reflecting if the time was between 08-14, 15-19 or 20-07 respectively. This was done because plotting the data showed three different plateaues of demand for the different time intervals. The original input was discarded.
-        \item \texttt{snowdepth}, \texttt{precip} were transformed into booleans, reflecting if it was raining or if there was snow on the ground or not. This was done as there was no times where demand was high when it was raining or when there was snow on the ground.
-    \end{itemize} 
-    \item \emph{Removed}: \texttt{cloudcover}, \texttt{day\_of\_week}, \texttt{snow}, \texttt{dew}, \texttt{holiday}, \texttt{summertime}. These were removed due to being redundant (e.g. \texttt{summertime}), not showing a clear trend (e.g. \texttt{cloudcover}), giving a worse score when used, or all three (e.g. \texttt{day\_of\_week}).
-\end{itemize}
+        \item \emph{Kept as-is}: \texttt{weekday}, \texttt{windspeed}, \texttt{visibility}, \texttt{temp}
+        \item \emph{Modified}:
+        \begin{itemize}
+            \item \texttt{month} - split into two inputs, one cosine and one sine part. This make the new inputs linear and can follow the fluctuations of the year. The original input was discarded.
+            \item \texttt{hour\_of\_day} - split into three boolean variables: \texttt{demand\_day}, \texttt{demand\_evening}, and \texttt{demand\_night}, reflecting if the time was between 08-14, 15-19 or 20-07 respectively. This was done because plotting the data showed three different plateaues of demand for the different time intervals. The original input was discarded.
+            \item \texttt{snowdepth}, \texttt{precip} were transformed into booleans, reflecting if it was raining or if there was snow on the ground or not. This was done as there was no times where demand was high when it was raining or when there was snow on the ground.
+        \end{itemize} 
+        \item \emph{Removed}: \texttt{cloudcover}, \texttt{day\_of\_week}, \texttt{snow}, \texttt{dew}, \texttt{holiday}, \texttt{summertime}. These were removed due to being redundant (e.g. \texttt{summertime}), not showing a clear trend (e.g. \texttt{cloudcover}), giving a worse score when used, or all three (e.g. \texttt{day\_of\_week}).
+    \end{itemize}

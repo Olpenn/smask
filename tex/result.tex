@@ -1,0 +1,37 @@
+\section{Result}
+
+The method used to evaluate the different models where chosen to be the accuracy as well as the precision and recall of the class "high bike demand".
+The accuracy is defined simply as:
+\begin{equation*}
+    \text{Accuracy} = \frac{n_{correct}}{n_{tot}}
+\end{equation*}
+And the precision and recall is defined as:
+\begin{equation*}
+    \text{Precision} = \frac{\text{True Positives}}{\text{True Positives} + \text{False Positives}}
+    \qquad
+    \text{Recall} = \frac{\text{True Positives}}{\text{True Positives} + \text{False Negatives}}
+\end{equation*}
+Furthermore, a naive model that only guessed there is a low demand was compared to the rest of the models.
+The different models were tested and the accuracy where:
+\\
+\begin{table*}[h]
+    \begin{center}
+        Accuracy of the models
+        \\
+        \begin{tabular}{|l|c|c|c|}
+            \hline
+            Model & Accuracy & Precision & Recall \\
+            \hline
+            LDA & $85\%$ & $53\%$ & $50\%$ \\
+            QDA & $87\%$ & $67\%$ & $36\%$ \\
+            k-nearest neighbour & $92\%$ & $81\%$ & $70\%$ \\
+            Random Forest & $91\%$ & $77\%$ &$71\%$ \\
+            Logistic Regression & $90\%$ & $73\%$ &$63\%$ \\ 
+            Naive & $83\%$ & $0\%$ & $0\%$ \\
+            \hline
+        \end{tabular}
+    \end{center}
+\end{table*}
+Here you can clearly see random forest and k-nearest neighbour are the best classifiers both outpreforming linear and quadratic regression on accuracy, precision and recall.
+Out of random forest and kNN the group would proceed with the kNN method, its higher accuracy and precision score out waying the slightly better recall score of random forest. 
+This will mean a slight loss in income caused by increasing false negatives but is thought to be covered by fewer false positives.

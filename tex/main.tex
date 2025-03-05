@@ -25,6 +25,7 @@
 \usepackage{xcolor}         % colors
 \usepackage{physics}
 \usepackage{enumerate}
+\usepackage{float}
 
 \definecolor{codegreen}{rgb}{0,0.6,0}
 \definecolor{codegray}{rgb}{0.5,0.5,0.5}
@@ -74,14 +75,21 @@ Project in Statistical Machine Learning}
 \maketitle
 
 \begin{abstract}
-  In this project we develop, and study different statistical machine learning models for predicting whether the number of available bikes at a given hour should be increased, a project by the District Department of Transportation in Washington D.C. The training data set consists of 1600 instances of hourly bike rentals, and a test set of 400 instances. The models for prediction we have used are: \emph{Logistic regression, Discriminant methods: LDA, QDA, $k$- Nearest Neighbour}, and \emph{Tree Based Methods}. We have found that THE MODEL gives best prediction, with accuracy ??????
+  In this project we develop, and study different statistical machine learning models for predicting whether the number of available bikes 
+  at a given hour should be increased, a project by the District Department of Transportation in Washington D.C. The training data set consists 
+  of 1600 instances of hourly bike rentals, and a test set of 400 instances. The models for prediction we have used are: 
+  \emph{Logistic regression, Discriminant methods: LDA, QDA, $k$- Nearest Neighbour}, and \emph{Tree Based Methods}. 
+  We have found that \emph{$k$- Nearest Neighbour} gives best prediction, with accuracy $92\%$.\\
+  The group consists of 4 students.
 \end{abstract}
+\pagebreak
 
-\include{plan}
-\include{introduction}
-\include{theory}
-\include{data_analysis}
-\include{conclusion}
+
+\input{introduction}
+\input{theory}
+\input{data_analysis}
+\input{result}
+\input{conclusion}
 
 \bibliography{ref}
 \appendix
