@@ -86,20 +86,9 @@ scaler = pp.StandardScaler().fit(X)
 model.fit(scaler.transform(X),Y)
 y_hat = model.predict(scaler.transform(X_test))
 
-'''
-# oskalad data
-model.fit(X,Y)
-y_hat = model.predict(X_test)'''
-
 # Get confusion matrix
 diff = pd.crosstab(y_hat, Y_test)
 print(f'Confusion matrix: \n {diff}')
-
-# No. of TP,TN,FP,FN
-'''TP = diff.iloc[0,0]
-TN = diff.iloc[1,1]
-FP = diff.iloc[1,0]
-FN = diff.iloc[0,1]'''
 
 # Get metrics:
 print(skl_m.classification_report(Y_test, y_hat))
