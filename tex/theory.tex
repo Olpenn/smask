@@ -1,39 +1,52 @@
 
-\section{Theoretical Background}
+\section{Theoretical background of the models}
 
-Here we review the theoretical background of the models. We follow mostly \cite{lindholm2022machine}.
+Here we review the mathematical background of the models we have used fot this project. We will mainly follow  \cite{lindholm2022machine}.
 
-Let $\{ \boldsymbol{x}_i, y_i \}_{n \in \mathbb{N}}$ be the training data set, where $\boldsymbol{x_i}$ is a matrix representing the input, and $y_i$ is the  output.
-
-\subsection{Mathematical Overview of the Models}
-
-    \subsubsection{Logistic Regression}
-    The backbone of logistic regression is linear regression, i.e. finding the least-squares solution to an equation system 
+    %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    \subsection{Logistic Regression}
+    The backbone of the \emph{logistic regression} is linear regression, i.e. finding the least-squares solution to an equation system 
+        \begin{equation*}
+            X\theta = y,
+        \end{equation*}
+     where $X$ is the training data matrix, $\theta$ is the coefficient vector (also called parameter vector), and $y$ is the training output. The solution to the system above is given by the normal system of equations 
+        \begin{equation*}
+            X^TX \theta = X^Ty
+        \end{equation*}
+    The parameter vector $\theta$ is then used in the sigmoid function $\sigma(z): \mathbb{R}\to [0,1]$
     \begin{equation*}
-        X\theta = y
+        \sigma(z) = \frac{e^{z}}{1+e^{z}}
     \end{equation*}
-    given by the normal equations 
-    \begin{equation*}
-        X^TX \theta = X^Ty
-    \end{equation*}
-    where $X$ is the training data matrix, $\theta$ is the coefficient vector and $b$ is the training output. The parameter vector is then used in the sigmoid function $\sigma(z): \mathbb{R}\to [0,1]$
-    \begin{equation*}
-        \sigma(z) = \frac{e^{z}}{1+e^{z}}:
-    \end{equation*}
-    where $  z = x^T \theta$, and $x$ is the testing input. This gives a statistical interpretation of the input vector. In the case of a binary True/False classification, the value of the sigmoid function then determines the class. The model was tuned using the \texttt{lbfgs} algorithm, which is standard in \emph{SKLearn}. It optimizes the weights  $\theta_i$ to minimize the log-loss function: 
+    where $  z = x^T \theta$, and $x$ is the testing input. This gives a statistical interpretation of the input vector, meaning $\sigma(z)$ maps the linear combination $z$ to a probability value in the interval $[0,1]$. In the case of a binary True/False classification, the value of the sigmoid function  determines the class. The model was tuned using the \texttt{lbfgs} algorithm, which is standard in \emph{SKLearn}. It optimizes the weights  $\theta_i$ to minimize the log-loss function, defined by 
     \begin{equation}
         J(\theta) = - \frac{1}{m} \sum_{i=1}^{m} \left[ y_i \log(h_\theta(x_i)) + (1 - y_i) \log(1 - h_\theta(x_i)) \right] + \frac{\lambda}{2} ||\theta||^2,
     \end{equation}
-    where $\lambda$ is the regularization strength (default for SKLearn: $\lambda = 1.0$), $h_\theta$ is the sigmoid function for each of the $m$ input vectors $x_i$, and $\theta$ is the parameter vector being optimized. It is being optimized through a gradient method.
-    
-\subsubsection{Random forest}
+    where $\lambda$ is the regularization strength (default for SKLearn is $\lambda = 1.0$), $h_\theta$ is the sigmoid function for each of the $m$ input vectors $x_i$, and $\theta$ is the parameter vector that will be optimized. For the optimization we have used a gradient method.
 
-The random forest method is a based upon decision trees, i.e. dividing the data point into binary groups based on Gini-impurity, entropy or classification error, Gini being the most common. 
-These divisions are then used to create a binary tree shown in figure \ref(Tree) and where thee leaf-nodes are used to classify the target variables bases on the input. 
-As of itself the disition tree tends to have unsatisfying results which leads to methodes like random forest and sandbagging that boost its accuracy.
-Sandbagging is a way to sampel the data in order to get multiple datasets from the same data. One then creates a desition-tree for every subset data to then combine them into one model. 
-This lessens the variance of the model but increases bias. This means that sandbagging can increase false negatives which in theis aplication makes i nonviable. 
-Random forest on the otherhand is viable, it creates mutiple trees whilse disrecarding random input variable this randomnes decreases overfitting creating a more robust model.  
+    
+    %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    \subsection{Random forest}
+    %These divisions are then used to create a binary tree shown in figure \ref(Tree) ingen figur, så tar bort det.
+    
+    The \emph{random forest method} is  based on so called decision trees, i.e. the data points are divided into binary groups based on Gini-impurity, entropy or classification error. Gini-impurity is the most commonly used. These divisions are then used to create a binary tree, where the thee leaf-nodes are used to classify the target variables, based on the input.
+    
+    The division tree itself usually gives unsatisfying results, which leads to developing methods such as random \emph{forest} and \emph{sandbagging}. These methods are considered to be more accurate.
+    
+    Sandbagging is a technique that samples the given data multiple times, in order to create multiple data sets extracted from the original data set. In the next a decision tree model is trained on each sample-subset, and the prediction of each sample-subset is then combined into one model. 
+    
+    This decreases the variance of the model, but at the same time increases bias, which means that sandbagging can increase false negatives, hence the model is non-viable for our project.
+    
+    On the other hand, random forest is viable, since it creates multiple trees, meanwhile it disregards the random input variable. The randomness of the process results in decreased overfitting, and we therefore have a more robust model.
+    
+ 
     
     %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
     %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -41,7 +54,9 @@ Random forest on the otherhand is viable, it creates mutiple trees whilse disrec
     %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
     %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
     \subsubsection{Non-parametric method: k--Nearest Neighbour}
-        \emph{$k$-- Nearest Neighbour}($k$--NN) is a distance based method that takes a $k$ amount of points from the training data set, called \emph{neighbours}, computes the distance between them, then assumes that the predicted value $\hat{y}(x_{*})$ follows the trend of the $k$-- nearest neighbours. Since $k$--NN uses the training data explicitly it is also called a \emph{nonparametric} method.
+    Let $\{ \boldsymbol{x}_i, y_i \}_{n \in \mathbb{N}}$ be the training data set, where $\boldsymbol{x_i}$ is a matrix representing the input, and $y_i$ is the  output.
+    
+    \emph{$k$-- Nearest Neighbour}($k$--NN) is a distance based method that takes a $k$ amount of points from the training data set, called \emph{neighbours}, computes the distance between them, then assumes that the predicted value $\hat{y}(x_{*})$ follows the trend of the $k$-- nearest neighbours. Since $k$--NN uses the training data explicitly it is also called a \emph{nonparametric} method.
 
     The $k$--NN method can be divided into several subcategories, inter alias \emph{classification} $k$--NN method, \emph{regression}  $k$--NN method. In this project, we are using the classification method, since we are trying to predict in which of the two classes low, or high demand, the given, and predicted data points belong.
 
@@ -89,68 +104,58 @@ Random forest on the otherhand is viable, it creates mutiple trees whilse disrec
 
     
 
+    %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%   
+    \newpage
+    \subsection{Discriminant analysis: LDA and QDA}
     
-\subsubsection{Discriminant analysis: LDA and QDA}
+    \emph{Linear Discriminant Analysis} is a generative model, which means it is a model that creates and uses a  priori probability 
+    distribution $P(\mathbf{x}, y)$ to estimate the posterior probability $P(y=m|\mathbf{x})$.  Here $\mathbf{x}$ is a feature vector,  $y$ is a class label belonging to some specific class $m$. In other words we compute the conditional probability $P(y=m|\mathbf{x})$ by using  Bayes' theorem, which states
+        \begin{equation*}
+            P(y|\mathbf{x}) = \frac{P(y,\mathbf{x})}{P(\mathbf{x})} = \frac{P(y)P(\mathbf{x}|y)}{\int_y P(y,\mathbf{x})}.
+        \end{equation*}
+        
+    When discrete variables are used, we have the following formulation of Bayes' theorem 
+    \begin{equation*}
+        p(y=m|\mathbf{x}) = \frac{p(y=m)p(\mathbf{x}|y=m)}{\sum_{m=1}^{M} p(y=m) p(\mathbf{x}|y=m)}.
+    \end{equation*}
+    %For this form of the equation to be useful, it is neccesary to obtain an accurate estimation of $p(y=m)$ and $p(\mathbf{x}|y=m)$
+    for all classes m. 
+    \\
+    
+    In LDA, $p(y=m)$ is estimated by calculating the proportion of the training data points of each class,  and then uses the calculated percentage as the probability of a certain data point belonging to a certain class. Mathematically
+        \begin{equation*}
+            p(y=m) = \frac{1}{n}\sum_{i=1}^{n}\mathbb{I}\{y_i=m\} = \frac{n_m}{n}
+        \end{equation*}  
 
-Linear Discriminant Analysis is a generative model, which means it is a model that's creating and using a probaility 
-distribution $P(\mathbf{x}, y)$ to create an estimation for the probability $P(y=m|\mathbf{x})$ using bayes theorem.
-\\
-Bayes theorem is:
-\begin{equation*}
-    p(y|\mathbf{x}) = \frac{p(y,\mathbf{x})}{p(\mathbf{x})} = \frac{p(y)p(\mathbf{x}|y)}{\int_y p(y,\mathbf{x})}
-\end{equation*}
-For the discrete version it is obtained:
-\begin{equation*}
-    p(y=m|\mathbf{x}) = \frac{p(y=m)p(\mathbf{x}|y=m)}{\sum_{m=1}^{M} p(y=m) p(\mathbf{x}|y=m)}
-\end{equation*}
-For this form of the equation to be useful, it is neccesary to obtain an accurate estimation of $p(y=m)$ and $p(\mathbf{x}|y=m)$
-for all classes m. 
-\\
-In LDA, $p(y=m)$ is estimated by counting the percentage of data points (in the training data) being in each of the classes 
-and using that percentage as the probability of a data point being in that class. In mathematical terms:
-\begin{equation*}
-    p(y=m) = \frac{1}{n}\sum_{i=1}^{n}\mathbb{I}\{y_i=m\} = \frac{n_m}{n}
-\end{equation*}  
-To estimete the probability distribution $p(\mathbf{x}|y=m)$, a multi-dimensional gaussian distribution is used: 
-\begin{equation*}
-    \mathcal{N}(\mathbf{x}|\mathbf{\mu}, \mathbf{\Sigma}) = \frac{1}{(2 \pi)^{d/2} |\mathbf{\Sigma}|^{1/2}} 
-    exp \left( -\frac{1}{2}(\mathbf{x}-\mathbf{\mu})^T \mathbf{\Sigma}^{-1} (\mathbf{x}-\mathbf{\mu})\right)
-\end{equation*}
-Where $\mathbf{x}$ is the d-dimentional data point, $\mathbf{\mu}$ is the (d-dimentional) mean of the random variable.
-$\mathbf{\Sigma}$ is the symetric, positive definite covariance matrix defined by:
-\begin{equation*}
-    \mathbf{\Sigma} = \frac{1}{n-M}\sum_{m=1}^{M} \sum_{i:y_i=m} 
-    (\mathbf{x}_i-\mathbf{\mu}_m)(\mathbf{x}_i-\mathbf{\mu}_m)^T
-\end{equation*}
-Using these estimations results in an expression for the quantity $p(y=m|\mathbf{x}) \forall m$. LDA then uses maximum
-likelyhood to categorize an input $\mathbf{x}$ into a class $m$.
-\\
-\\
-Quadratic discriminant analysis (QDA) is heavily based of LDA with the sole difference being how the covariance matrix 
-$\mathbf{\Sigma}$ is created.
-In LDA, the covariance matrix is assumed to be the same for data in each and every class. In QDA however,
-the covariance matrix is calculated for each class as follows:
-\begin{equation*}
-    \mathbf{\Sigma}_m = \frac{1}{n_m - 1} \sum_{i:y_i=m} 
-    (\mathbf{x}_i-\mathbf{\mu}_m)(\mathbf{x}_i-\mathbf{\mu}_m)^T
-\end{equation*}
-\\
-\\
-To optimize LDA and QDA, it's all about estimating $\mathbf{\Sigma}_m$ and $\mathbf{\mu_m}$ for all classes m. 
-The mean $\mathbf{\mu}$ is estiamted as the mean of all the input data $\mathbf{\mu} = \frac{1}{n_m}\sum_{i=1}^{n_m} \mathbf{x}_i$.
-The covariance matrix $\mathbf{\Sigma}_m$ is defined previously in the section. 
-\\
-\\
-One thing to note about LDA and QDA is that the use of a multi-variable gaussian distribution benefints normally distributed
-variables. In this project however, there is a dependance on positive definite values which are not normally distributed
-by nature. This is an issue when using QDA since in the class of $\textit{high\_bike\_demand}$, all data points have a 
-snow depth of 0 and has hence no variance. This results in this class having a undefined inverse for the covariance matrix.
-The solution used was to exclude this variable from this model. 
+    We then use the multi-dimensional Gaussian distribution given by
+        \begin{equation} \label{eq: Gaussiandistriburion LDA}
+            \mathcal{N}(\mathbf{x}|\mathbf{\mu}, \mathbf{\Sigma}) = \frac{1}{(2 \pi)^{d/2} |\mathbf{\Sigma}|^{1/2}} 
+            exp \left( -\frac{1}{2}(\mathbf{x}-\mathbf{\mu})^T \mathbf{\Sigma}^{-1} (\mathbf{x}-\mathbf{\mu})\right),
+        \end{equation}
+    in order to estimate the probability distribution $p(\mathbf{x}|y=m)$. In \eqref{eq: Gaussiandistriburion LDA}, $\mathbf{x}$ is the d-dimentional data point, $\mathbf{\mu}$ is the (d-dimentional) mean of the random variable,
+    $\mathbf{\Sigma}$ is the symmetric, positive definite covariance matrix given by
+        \begin{equation*}
+            \mathbf{\Sigma} = \frac{1}{n-M}\sum_{m=1}^{M} \sum_{i:y_i=m} 
+            (\mathbf{x}_i-\mathbf{\mu}_m)(\mathbf{x}_i-\mathbf{\mu}_m)^T.
+        \end{equation*}
+    Using the above estimations, we derive an expression for $p(y=m|\mathbf{x})$, for all $m$. By applying the maximum likelihood principle, LDA assigns $\mathbf{x}$ to the most probable class $m$. 
+    
+    Quadratic discriminant analysis (QDA) is based on LDA. The main difference is the computation of the covariance matrix $\mathbf{\Sigma}$. In LDA,  $\mathbf{\Sigma}$ is assumed to be the same for all classes. In QDA, $\mathbf{\Sigma}$ is computed for each class as follows
+    \begin{equation*}
+        \mathbf{\Sigma}_m = \frac{1}{n_m - 1} \sum_{i:y_i=m} 
+        (\mathbf{x}_i-\mathbf{\mu}_m)(\mathbf{x}_i-\mathbf{\mu}_m)^T
+    \end{equation*}
+    
+    To optimize LDA and QDA, we need to estimate $\mathbf{\Sigma}_m$ and $\mathbf{\mu_m}$ for all classes m. The mean $\mathbf{\mu}$ is given by the average of the input data $\mathbf{\mu} = \frac{1}{n_m}\sum_{i=1}^{n_m} \mathbf{x}_i$.
 
-
-
-
-
+    Notice that both LDA, and QDA relay on a multi-variable Gaussian distribution, which is the best choice for normally distributed
+    variables. However, in this project we are working with positive definite values, which usually are not normally distributed. This becomes problematic for the QDA model, because all data points of the class $\textit{high\_bike\_demand}$ have a
+    snow depth of 0, hence no variance. As a result the inverse of the covariance matrix is not defined. To address this problem, we exclude this variable from this model. 
+    
 
     %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
     %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%

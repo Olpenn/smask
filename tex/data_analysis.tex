@@ -1,85 +1,86 @@
 \section{Data Analysis}
-In the given data, there are some numerical and categorical features:
-\begin{itemize}
-    \item \emph{Numerical}: \texttt{temp}, \texttt{dew}, \texttt{humidity}, \texttt{precip}, \texttt{snow}, \texttt{snowdepth}, \texttt{windspeed}, \texttt{cloudcover} and \texttt{visibility}.
-    \item \emph{Categorical}: \texttt{hour\_of\_day}, \texttt{day\_of\_week}, \texttt{month}, \texttt{holiday}, \texttt{weekday}, \texttt{summertime}, and \texttt{increase\_stock}
-\end{itemize}
+    In the given data, there are some numerical and categorical features:
+        \begin{itemize}
+            \item \emph{Numerical}: \texttt{temp}, \texttt{dew}, \texttt{humidity}, \texttt{precip}, \texttt{snow}, \texttt{snowdepth}, \texttt{windspeed}, \texttt{cloudcover} and \texttt{visibility}.
+            \item \emph{Categorical}: \texttt{hour\_of\_day}, \texttt{day\_of\_week}, \texttt{month}, \texttt{holiday}, \texttt{weekday}, \texttt{summertime}, and \texttt{increase\_stock}
+        \end{itemize}
 
-\begin{figure}[htbp]
-    \centering
-    \begin{subfigure}{0.45\textwidth}
+    \begin{figure}[htbp]
         \centering
-        \includegraphics[width=\textwidth]{demand_day.pdf}
-        \caption{Demand per day of week.}
-        \label{fig:demand day}
-    \end{subfigure}
-    \hfill
-    \begin{subfigure}{0.45\textwidth}
+        \begin{subfigure}{0.45\textwidth}
+            \centering
+            \includegraphics[width=\textwidth]{demand_day.pdf}
+            \caption{Demand per day of week.}
+            \label{fig:demand day}
+        \end{subfigure}
+        \hfill
+        \begin{subfigure}{0.45\textwidth}
+            \centering
+            \includegraphics[width=\textwidth]{demand_month.pdf}
+            \caption{Demand per month.}
+            \label{fig:demand month}
+        \end{subfigure}
+        \hfill
+        \begin{subfigure}{0.8\textwidth}
+            \centering
+            \includegraphics[width=\textwidth]{demand_hour.pdf}
+            \caption{Demand per hour of day.}
+            \label{fig:demand hour}
+        \end{subfigure}
+        \caption{Bike demand vs. day of week and month.}
+        \label{fig:demand day month}
+    \end{figure}
+    
+    \begin{figure}[htbp]
         \centering
-        \includegraphics[width=\textwidth]{demand_month.pdf}
-        \caption{Demand per month.}
-        \label{fig:demand month}
-    \end{subfigure}
-    \hfill
-    \begin{subfigure}{0.8\textwidth}
-        \centering
-        \includegraphics[width=\textwidth]{demand_hour.pdf}
-        \caption{Demand per hour of day.}
-        \label{fig:demand hour}
-    \end{subfigure}
-    \caption{Bike demand vs. day of week and month.}
-    \label{fig:demand day month}
-\end{figure}
+    
+        \begin{subfigure}{0.30\textwidth}
+            \centering
+            \includegraphics[width=\textwidth]{demand_cloudcover.pdf}
+            \caption{Demand per cloudcover (percentage).}
+            \label{fig:demand cloudcover}
+        \end{subfigure}
+        \hfill
+        \begin{subfigure}{0.30\textwidth}
+            \centering
+            \includegraphics[width=\textwidth]{demand_snowdepth.pdf}
+            \caption{Demand per snowdepth (mm).}
+            \label{fig:demand snowdepth}
+        \end{subfigure}
+        \hfill
+        \begin{subfigure}{0.30\textwidth}
+            \centering
+            \includegraphics[width=\textwidth]{demand_precip.pdf}
+            \caption{Demand per precipitation (mm/hour).}
+            \label{fig:demand precip}
+        \end{subfigure}
+        \hfill
+        \begin{subfigure}{0.30\textwidth}
+            \centering
+            \includegraphics[width=\textwidth]{demand_dew.pdf}
+            \caption{Demand per dew point ($^\circ$C).}
+            \label{fig:demand dew}
+        \end{subfigure}
+        \hfill
+        \begin{subfigure}{0.30\textwidth}
+            \centering
+            \includegraphics[width=\textwidth]{demand_temp.pdf}
+            \caption{Demand per temperature ($^\circ$).}
+            \label{fig:demand temp}
+        \end{subfigure}
+        \hfill
+        \begin{subfigure}{0.30\textwidth}
+            \centering
+            \includegraphics[width=\textwidth]{demand_humidity.pdf}
+            \caption{Demand per humidity level (percentage).} 
+            \label{fig:demand humidity}
+        \end{subfigure}
+            \caption{Bike demand vs. various weather parameters.}
+            \label{fig:demand weather}
+    \end{figure}
 
-\begin{figure}[htbp]
-    \centering
+    Few trends can be detected when analysing the time and the weather. From figure \ref{fig:demand day month}, one can see a periodic relationship for the months, where there is a higher demand during the warmer months, which loosely follows a trigonometric curve. Over the week, the demand is rather stable, with a peak on the weekend, specifically Saturdays. 
+    
+    Weather wise, Figure \ref{fig:demand weather} suggests that the demand is almost always low, whenever it is raining or snowing. Cloudcover did not make a big impact, which is also intuitive, as a cloudy day does not affect biking as much as snowing for example. Similarly to cloudcover, dew point does not have a clear trend, while humidity however has; when the humidity increases, the demand decreases. Furthermore, temperature has a somewhat clear impact on the trend; warmer weather means increase in demand.
 
-    \begin{subfigure}{0.30\textwidth}
-        \centering
-        \includegraphics[width=\textwidth]{demand_cloudcover.pdf}
-        \caption{Demand per cloudcover (percentage).}
-        \label{fig:demand cloudcover}
-    \end{subfigure}
-    \hfill
-    \begin{subfigure}{0.30\textwidth}
-        \centering
-        \includegraphics[width=\textwidth]{demand_snowdepth.pdf}
-        \caption{Demand per snowdepth (mm).}
-        \label{fig:demand snowdepth}
-    \end{subfigure}
-    \hfill
-    \begin{subfigure}{0.30\textwidth}
-        \centering
-        \includegraphics[width=\textwidth]{demand_precip.pdf}
-        \caption{Demand per precipitation (mm/hour).}
-        \label{fig:demand precip}
-    \end{subfigure}
-    \hfill
-    \begin{subfigure}{0.30\textwidth}
-        \centering
-        \includegraphics[width=\textwidth]{demand_dew.pdf}
-        \caption{Demand per dew point ($^\circ$C).}
-        \label{fig:demand dew}
-    \end{subfigure}
-    \hfill
-    \begin{subfigure}{0.30\textwidth}
-        \centering
-        \includegraphics[width=\textwidth]{demand_temp.pdf}
-        \caption{Demand per temperature ($^\circ$).}
-        \label{fig:demand temp}
-    \end{subfigure}
-    \hfill
-    \begin{subfigure}{0.30\textwidth}
-        \centering
-        \includegraphics[width=\textwidth]{demand_humidity.pdf}
-        \caption{Demand per humidity level (percentage).} 
-        \label{fig:demand humidity}
-    \end{subfigure}
-        \caption{Bike demand vs. various weather parameters.}
-        \label{fig:demand weather}
-\end{figure}
-There are some trends seen in the data when it comes to time and weather. From figure \ref{fig:demand day month}, one can see a periodic relationship for the months, where there is a higher demand during the warmer months, loosely following a trigonometric curve. Over the week, the demand is rather stable, with a peak on the weekend, especially saturdays. 
-
-Looking at the weather (figure \ref{fig:demand weather}); if there is rain or if there is snow on the ground, there is close to always low demand. Cloudcover did not make a big impact, which is also intuitive, as a cloudy day does not make biking more difficult. Dew point also does not have a clear trend, while humidity however has a clear trend downwards as the humidity increases. Temperature had a more clear impact, where more people wanted to bike the warmer it got.
-
-The overall trend is that about one eigth of observations correspond to a high bike demand. During the night, or in bad weather, the demand is (intuitively) low. But during rush hour (figure \ref{fig:demand hour}), the demand is very high, and should probably be increased in order to minimize excessive CO$_2$ emissions.
+    The overall trend is that about one eight of observations correspond to a high bike demand. During night, or bad weather, the demand is (intuitively) low. But during rush hour (see Figure \ref{fig:demand hour}), the demand is very high, and the  bike availability should probably be increased in order to minimize excessive CO$_2$ emissions.
